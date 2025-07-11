@@ -1,17 +1,104 @@
 /*---------------------------------------------
-	#변수 지정하기
+	#변수 지정하기 - 반응형 대응
 ---------------------------------------------*/
-/***************** 폰트 *****************/
-/* font-weight */
-$font-w-r:400;
-$font-w-m:500;
-$font-w-b:600;
-$font-w-e:700;
-$font-w-h:800;
 
-/***************** 색상 *****************/
+/***************** 브레이크포인트 *****************/
+$mobile-max: 767px;
+$tablet-min: 768px;
+$tablet-max: 1024px;
+$desktop-min: 1025px;
+
+/***************** 기본 변수 (모바일 우선) *****************/
+/* font-size - 모바일 */
+$font10: 0.625rem;   // 10px
+$font12: 0.75rem;    // 12px - 캡션
+$font13: 0.8125rem;  // 13px
+$font14: 0.875rem;   // 14px - 본문
+$font15: 0.9375rem;  // 15px
+$font16: 1rem;       // 16px
+$font18: 1.125rem;   // 18px - 소제목
+$font20: 1.25rem;    // 20px
+$font22: 1.375rem;   // 22px
+$font24: 1.5rem;     // 24px - 제목
+$font28: 1.75rem;    // 28px
+$font32: 2rem;       // 32px
+$font40: 2.5rem;     // 40px
+$font50: 3.125rem;   // 50px
+
+/* font-weight */
+$font-w-r: 400;
+$font-w-m: 500;
+$font-w-b: 600;
+$font-w-e: 700;
+$font-w-h: 800;
+
 /* text color */
-$title: #222222;
-$content: #454545;
-$secondary: #757575;
-$text-disabled: #999999;
+$color22: #222222;
+$color45: #454545;
+$color75: #757575;
+$color99: #999999;
+
+/***************** 태블릿 변수 *****************/
+/* font-size - 태블릿 */
+$font10-t: 0.75rem;    // 12px
+$font12-t: 0.875rem;   // 14px - 캡션
+$font13-t: 0.9375rem;  // 15px
+$font14-t: 1rem;       // 16px - 본문
+$font15-t: 1.0625rem;  // 17px
+$font16-t: 1.125rem;   // 18px
+$font18-t: 1.25rem;    // 20px - 소제목
+$font20-t: 1.375rem;   // 22px
+$font22-t: 1.5rem;     // 24px
+$font24-t: 1.75rem;    // 28px - 제목
+$font28-t: 2rem;       // 32px
+$font32-t: 2.25rem;    // 36px
+$font40-t: 2.5rem;     // 40px
+$font50-t: 3rem;       // 48px
+
+/***************** PC 변수 *****************/
+/* font-size - PC */
+$font10-pc: 0.875rem;   // 14px
+$font12-pc: 1rem;       // 16px - 캡션
+$font13-pc: 1.0625rem;  // 17px
+$font14-pc: 1rem;       // 16px - 본문
+$font15-pc: 1.125rem;   // 18px
+$font16-pc: 1.125rem;   // 18px
+$font18-pc: 1.375rem;   // 22px - 소제목
+$font20-pc: 1.5rem;     // 24px
+$font22-pc: 1.625rem;   // 26px
+$font24-pc: 2rem;       // 32px - 제목
+$font28-pc: 2.25rem;    // 36px
+$font32-pc: 2.5rem;     // 40px
+$font40-pc: 3rem;       // 48px
+$font50-pc: 4rem;       // 64px
+
+/***************** 간단한 믹스인들 *****************/
+// 반응형 폰트 사이즈 (모바일, 태블릿, PC 순서)
+@mixin font-responsive($mobile, $tablet, $desktop) {
+    font-size: $mobile;
+    
+    @media (min-width: $tablet-min) {
+        font-size: $tablet;
+    }
+    
+    @media (min-width: $desktop-min) {
+        font-size: $desktop;
+    }
+}
+
+// 포트폴리오용 폰트 사이즈 믹스인
+@mixin font-title {
+    @include font-responsive($font24, $font24-t, $font24-pc);  // 24px → 28px → 32px
+}
+
+@mixin font-subtitle {
+    @include font-responsive($font18, $font18-t, $font18-pc);  // 18px → 20px → 22px
+}
+
+@mixin font-body {
+    @include font-responsive($font14, $font14-t, $font14-pc);  // 14px → 16px → 16px
+}
+
+@mixin font-caption {
+    @include font-responsive($font12, $font12-t, $font12-pc);  // 12px → 14px → 16px
+}

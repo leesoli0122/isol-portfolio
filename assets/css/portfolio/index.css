@@ -2,7 +2,10 @@
 
 @import url("layout.css");
 @import url("./style.css");
-@import url("./reset.css");
+
+/* 공통 */
+@import url("../common/reset.css");
+
 /* mixin, placeholder, 변수 */
 @import url("../common/_variable.css");
 
