@@ -1,0 +1,13 @@
+@import '../common/_variable.scss';
+
+// 실제 스타일 작성
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .portfolio {
+    color: yellow; // variable.scss에서 정의한 변수 사용
+    background-color:red;
+    border: 1px solid #DDD;
+    margin:5px;
+  }

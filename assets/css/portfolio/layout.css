@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/*---------------------------------------------
+	#변수 지정하기
+---------------------------------------------*/
+/***************** 폰트 *****************/
+/* font-weight */
+/***************** 색상 *****************/
+/* text color */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.portfolio {
+  color: yellow;
+  background-color: red;
+  border: 1px solid #DDD;
+  margin: 5px;
+}
