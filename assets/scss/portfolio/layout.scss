@@ -1,16 +1,11 @@
 @import '../common/variable';
 
 body {
-  &:has(.mobile-preview) {
-    .preview-controls {
-      max-width:375px !important;
-      margin:0 auto;
-    }
-  }
+  background-color:$background01;
 }
 
 .main-container {
-  background-color:$white;
+  background-color:$background01;
 }
 /*---------------------------------------------
 	#skipnavi
@@ -99,4 +94,17 @@ body {
 	#헤더
 ---------------------------------------------*/
 .header {
+  background-color:$background01;
+  .logo {
+    img {
+      @include wh (140px,20px);
+      margin-bottom:10px;
+    }
+    &::before {
+      content:"";
+      display:inline-block;
+      @include icon (50px,50px);
+      background-image:url("/assets/images/me.svg");
+    }
+  }
 }

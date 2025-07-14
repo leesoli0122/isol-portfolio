@@ -15,13 +15,12 @@
 /***************** PC 변수 *****************/
 /* font-size - PC */
 /***************** 간단한 믹스인들 *****************/
-body:has(.mobile-preview) .preview-controls {
-  max-width: 375px !important;
-  margin: 0 auto;
+body {
+  background-color: #F6F8FC;
 }
 
 .main-container {
-  background-color: #FFFFFF;
+  background-color: #F6F8FC;
 }
 
 /*---------------------------------------------
@@ -118,3 +117,20 @@ body:has(.mobile-preview) .preview-controls {
 /*---------------------------------------------
 	#헤더
 ---------------------------------------------*/
+.header {
+  background-color: #F6F8FC;
+}
+.header .logo img {
+  width: 140px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+.header .logo::before {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/me.svg");
+}

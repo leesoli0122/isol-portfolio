@@ -5,6 +5,7 @@ let currentDevice = 'desktop';
 function setDevice(device) {
     const container = document.getElementById('mainContainer');
     const buttons = document.querySelectorAll('.preview-controls button');
+    const previewControls = document.querySelector('.preview-controls');
     
     // 기존 클래스 제거
     container.className = 'main-container';
@@ -18,6 +19,13 @@ function setDevice(device) {
     
     currentDevice = device;
     
+    // 모바일일 때만 preview-controls 숨기기
+    if (device === 'mobile') {
+        previewControls.style.display = 'none';
+    } else {
+        previewControls.style.display = 'block';
+    }
+
     // 디바이스 변경 애니메이션
     container.style.transform = 'scale(0.95)';
     setTimeout(() => {
@@ -70,3 +78,14 @@ window.addEventListener('resize', showResponsiveInfo);
 
 // 초기 정보 표시
 showResponsiveInfo();
+
+// 페이지 로드 시 초기 상태 설정
+document.addEventListener('DOMContentLoaded', function() {
+    // 초기 상태가 mobile-preview이므로 preview-controls 숨기기
+    if (currentDevice === 'mobile') {
+        const previewControls = document.querySelector('.preview-controls');
+        if (previewControls) {
+            previewControls.style.display = 'none';
+        }
+    }
+});

@@ -141,3 +141,32 @@ $font50-pc: 4rem;       // 64px
         bottom: $bottom;
     }
 }
+
+@mixin wh ($width, $height) {
+    width:$width;
+    height:$height;
+}
+
+@mixin mask($backColor) {
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-size:100%;
+    mask-size:100%;
+    -webkit-mask-position:center;
+    mask-position:center;
+    background-color:$backColor;
+    vertical-align:text-bottom;
+}
+
+@mixin icon($width, $height) {
+    width:$width;
+    height:$height;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+
+@mixin title($size, $weight, $color) {
+    font-size:$size;
+    font-weight:$weight;
+    color:$color;
+}
