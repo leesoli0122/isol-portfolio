@@ -38,6 +38,26 @@ $color45: #454545;
 $color75: #757575;
 $color99: #999999;
 
+/* background */
+$background01:#F6F8FC;
+$background02:#E9EEF6;
+$background03:#2A98E6;
+
+/* Primary */
+$primary: #1A73E8;        // 기본 + 포커스
+
+/* Accent, Point */
+$accent: #EA4335;         // 오류, 중요 상태
+$point: #34A853;          // 성공/승인 강조
+$white: #FFFFFF;     // 기본 배경
+
+// Border Colors
+$border01: #F1F3F4;   // 밝은 보더 (입력창 등)
+$border02: #C9C9C9;    // 진한 보더 (hover 등)
+
+// Highlight / Notification
+$color-highlight: #FBBC04;      // 알림/강조 노란색
+
 /***************** 태블릿 변수 *****************/
 /* font-size - 태블릿 */
 $font10-t: 0.75rem;    // 12px
@@ -101,4 +121,23 @@ $font50-pc: 4rem;       // 64px
 
 @mixin font-caption {
     @include font-responsive($font12, $font12-t, $font12-pc);  // 12px → 14px → 16px
+}
+
+// 공통
+@mixin absolute($position: null, $top: null, $left: null, $right: null, $bottom: null) {
+    @if $position != null {
+        position: $position;
+    }
+    @if $top != null {
+        top: $top;
+    }
+    @if $left != null {
+        left: $left;
+    }
+    @if $right != null {
+        right: $right;
+    }
+    @if $bottom != null {
+        bottom: $bottom;
+    }
 }

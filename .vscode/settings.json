@@ -3,21 +3,21 @@
     {
       "format": "expanded",
       "extensionName": ".css",
-      "savePath": null
+      "savePath": null,
+      "savePathReplacementPairs": {
+        "/assets/scss/portfolio": "/assets/css/portfolio",
+        "/assets/scss/_common": "/assets/css/common"
+      }
     }
-  ],
-  "liveSassCompile.settings.includeItems": [
-    "assets/scss/**/*.scss"
   ],
   "liveSassCompile.settings.excludeList": [
     "**/node_modules/**",
-    "**/.vscode/**"
+    ".vscode/**"
   ],
-  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.generateMap": false,
   "liveSassCompile.settings.autoprefix": [
     "> 1%",
     "last 2 versions"
   ],
-  "liveSassCompile.settings.watchOnLaunch": false,
-  "liveSassCompile.settings.compileOnWatch": true
+  "liveSassCompile.settings.showOutputWindow": true
 }

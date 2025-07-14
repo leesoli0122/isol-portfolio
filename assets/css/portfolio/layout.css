@@ -7,18 +7,114 @@
 /* font-size - 모바일 */
 /* font-weight */
 /* text color */
+/* background */
+/* Primary */
+/* Accent, Point */
 /***************** 태블릿 변수 *****************/
 /* font-size - 태블릿 */
 /***************** PC 변수 *****************/
 /* font-size - PC */
 /***************** 간단한 믹스인들 *****************/
-body {
-  font-family: Arial, sans-serif;
+body:has(.mobile-preview) .preview-controls {
+  max-width: 375px !important;
+  margin: 0 auto;
 }
 
-.portfolio {
-  color: yellow;
-  background-color: red;
-  border: 1px solid #DDD;
-  margin: 5px;
+.main-container {
+  background-color: #FFFFFF;
 }
+
+/*---------------------------------------------
+	#skipnavi
+---------------------------------------------*/
+#skipnavi li a {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 999999;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 0;
+}
+#skipnavi li a:focus-visible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  background-color: #EAEAEA;
+  border: 1px solid #757575;
+  font-weight: 600;
+  color: #222222;
+  line-height: 1;
+}
+
+/*---------------------------------------------
+	#프리뷰
+---------------------------------------------*/
+/* 프리뷰 컨트롤 */
+.preview-controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px 20px;
+  -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+}
+.preview-controls button {
+  padding: 8px 16px;
+  border: 2px solid #1A73E8;
+  border-radius: 5px;
+  background: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #1A73E8;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.preview-controls button:hover, .preview-controls button.active {
+  background: #1A73E8;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* 프리뷰 모드 스타일 */
+.mobile-preview {
+  max-width: 375px !important;
+  margin: 54px auto 0;
+  padding: 20px !important;
+}
+
+.tablet-preview {
+  max-width: 768px !important;
+  margin: 0 auto;
+  padding: 30px !important;
+}
+
+.tablet-portrait-preview {
+  max-width: 600px !important;
+  margin: 0 auto;
+  padding: 25px !important;
+}
+
+.desktop-preview {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  padding: 60px !important;
+}
+
+/*---------------------------------------------
+	#헤더
+---------------------------------------------*/

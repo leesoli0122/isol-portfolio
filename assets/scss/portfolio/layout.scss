@@ -1,13 +1,102 @@
-@import '../common/_variable.scss';
+@import '../common/variable';
 
-// 실제 스타일 작성
 body {
-    font-family: Arial, sans-serif;
+  &:has(.mobile-preview) {
+    .preview-controls {
+      max-width:375px !important;
+      margin:0 auto;
+    }
   }
-  
-  .portfolio {
-    color: yellow; // variable.scss에서 정의한 변수 사용
-    background-color:red;
-    border: 1px solid #DDD;
-    margin:5px;
+}
+
+.main-container {
+  background-color:$white;
+}
+/*---------------------------------------------
+	#skipnavi
+---------------------------------------------*/
+#skipnavi {
+  li {
+    a {
+      @include absolute ($position:absolute, $top:-100px, $left:0);
+      z-index:999999;
+      display:block;
+      width:100%;
+      font-size:$font16;
+      text-align:center;
+      line-height:1;
+      letter-spacing:0;
+      &:focus-visible {
+        @include absolute ($position:absolute, $top:0, $left:0);
+        padding:20px 0;
+        background-color:#EAEAEA;
+        border:1px solid $color75;
+        font-weight:$font-w-b;
+        color:$color22;
+        line-height:1;
+      }
+    }
   }
+}
+
+/*---------------------------------------------
+	#프리뷰
+---------------------------------------------*/
+/* 프리뷰 컨트롤 */
+.preview-controls {
+  @include absolute ($position:fixed, $top:0, $right:0, $left:0);
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding:10px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background-color:$white;
+  button {
+    padding: 8px 16px;
+    border: 2px solid $primary;
+    border-radius: 5px;
+    background:$white;
+    font-size:$font12;
+    font-weight:$font-w-m;
+    color: $primary;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover, &.active {
+      background: $primary;
+      font-weight:$font-w-b;
+      color:$white;
+    }
+  }
+}
+
+/* 프리뷰 모드 스타일 */
+.mobile-preview {
+  max-width: 375px !important;
+  margin:54px auto 0;
+  padding: 20px !important;
+}
+
+.tablet-preview {
+  max-width: 768px !important;
+  margin: 0 auto;
+  padding: 30px !important;
+}
+
+.tablet-portrait-preview {
+  max-width: 600px !important;
+  margin: 0 auto;
+  padding: 25px !important;
+}
+
+.desktop-preview {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  padding: 60px !important;
+}
+
+/*---------------------------------------------
+	#헤더
+---------------------------------------------*/
+.header {
+}

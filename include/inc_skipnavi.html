@@ -1,0 +1,82 @@
+<ul>
+    <li><a href="#contentWrap" id="contentWrap">본문 바로가기</a></li>
+    <li><a href="#gnb" id="gnb">주메뉴 바로가기</a></li>
+    <li><a href="#footerWrap" id="footerWrap">하단 바로가기</a></li>
+</ul>
+
+<script>
+    $(function(){
+    /* skipnavi focus 이동 */
+        $("#skipnavi a").keydown(function(e){
+            if (e.keyCode === 13) {
+                e.preventDefault(); // 기본 동작 방지
+                
+                if (this.id === "contentWrap") {
+                    // 본문 바로가기
+                    location.href = "#contentWrap";
+                    setTimeout(function() {
+                        const mainContent = $("#contentWrap main");
+                        if (mainContent.length > 0) {
+                            mainContent.attr('tabindex', '-1').focus();
+                        } else {
+                            $("#contentWrap").attr('tabindex', '-1').focus();
+                        }
+                    }, 100);
+                    
+                } else if (this.id === "gnb") {
+                    // 주메뉴 바로가기
+                    location.href = "#gnb";
+                    setTimeout(function() {
+                        const navLinks = $(".nav a");
+                        if (navLinks.length > 0) {
+                            navLinks.first().focus();
+                        } else {
+                            $(".nav").attr('tabindex', '-1').focus();
+                        }
+                    }, 100);
+                    
+                } else if (this.id === "footerWrap") {
+                    // 하단 바로가기
+                    location.href = "#footerWrap";
+                    setTimeout(function() {
+                        const footer = $(".footer");
+                        if (footer.length > 0) {
+                            footer.attr('tabindex', '-1').focus();
+                        }
+                    }, 100);
+                }
+            }
+        });
+
+        /* click 이벤트도 추가 */
+        $("#skipnavi a").click(function(e){
+            e.preventDefault();
+            
+            if (this.id === "contentWrap") {
+                location.href = "#contentWrap";
+                const mainContent = $("#contentWrap main");
+                if (mainContent.length > 0) {
+                    mainContent.attr('tabindex', '-1').focus();
+                } else {
+                    $("#contentWrap").attr('tabindex', '-1').focus();
+                }
+                
+            } else if (this.id === "gnb") {
+                location.href = "#gnb";
+                const navLinks = $(".nav a");
+                if (navLinks.length > 0) {
+                    navLinks.first().focus();
+                } else {
+                    $(".nav").attr('tabindex', '-1').focus();
+                }
+                
+            } else if (this.id === "footerWrap") {
+                location.href = "#footerWrap";
+                const footer = $(".footer");
+                if (footer.length > 0) {
+                    footer.attr('tabindex', '-1').focus();
+                }
+            }
+        });
+    });
+</script>
