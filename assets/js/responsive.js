@@ -3,9 +3,17 @@ let currentDevice = 'desktop';
 
 // 디바이스 변경 함수
 function setDevice(device) {
+    console.log('setDevice 함수 호출됨:', device);
+
     const container = document.getElementById('mainContainer');
     const buttons = document.querySelectorAll('.preview-controls button');
     const previewControls = document.querySelector('.preview-controls');
+
+    console.log('요소 확인:', {
+        container: container,
+        buttons: buttons.length,
+        previewControls: previewControls
+    });
     
     // 기존 클래스 제거
     container.className = 'main-container';
@@ -13,17 +21,27 @@ function setDevice(device) {
     // 새로운 클래스 추가
     container.classList.add(device + '-preview');
     
-    // 버튼 활성화 상태 변경
+    // 버튼 활성화 상태 변경 (event가 존재할 때만)
     buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    if (typeof event !== 'undefined' && event.target) {
+        event.target.classList.add('active');
+    } else {
+        // 키보드 단축키나 다른 방식으로 호출된 경우
+        const deviceButton = document.querySelector(`.preview-controls button[onclick="setDevice('${device}')"]`);
+        if (deviceButton) {
+            deviceButton.classList.add('active');
+        }
+    }
     
     currentDevice = device;
     
     // 모바일일 때만 preview-controls 숨기기
     if (device === 'mobile') {
         previewControls.style.display = 'none';
+        console.log('모바일 모드: preview-controls 숨김');
     } else {
-        previewControls.style.display = 'block';
+        previewControls.style.display = 'flex';
+        console.log(`${device} 모드: preview-controls 표시`);
     }
 
     // 디바이스 변경 애니메이션
@@ -81,9 +99,12 @@ showResponsiveInfo();
 
 // 페이지 로드 시 초기 상태 설정
 document.addEventListener('DOMContentLoaded', function() {
-    // 초기 상태가 mobile-preview이므로 preview-controls 숨기기
-    if (currentDevice === 'mobile') {
-        const previewControls = document.querySelector('.preview-controls');
+    // HTML에서 초기 상태가 mobile-preview이므로 preview-controls 숨기기
+    const container = document.getElementById('mainContainer');
+    const previewControls = document.querySelector('.preview-controls');
+    
+    if (container && container.classList.contains('mobile-preview')) {
+        currentDevice = 'mobile';
         if (previewControls) {
             previewControls.style.display = 'none';
         }
