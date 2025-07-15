@@ -17,14 +17,20 @@ body {
     padding:20px;
   }
   .title {
-    padding-bottom:10px;
+    padding:20px 0 10px;
     border-bottom:4px solid $background03;
-    @include font-title();
     font-weight:$font-w-b;
     color:$color22;
+    @include font-title;
   }
   .tex_wrap {
     padding-top:40px;
+  }
+  .txt_list {
+    padding:20px;
+    border:1px solid $border02;
+    border-radius:10px;
+    background-color:$background02;
   }
 }
 

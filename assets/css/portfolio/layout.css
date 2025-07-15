@@ -31,11 +31,11 @@ body {
   padding: 20px;
 }
 .content .title {
-  padding-bottom: 10px;
+  padding: 20px 0 10px;
   border-bottom: 4px solid #2A98E6;
-  font-size: 1.5rem;
   font-weight: 600;
   color: #222222;
+  font-size: 1.5rem;
 }
 @media (min-width: 768px) {
   .content .title {
@@ -49,6 +49,12 @@ body {
 }
 .content .tex_wrap {
   padding-top: 40px;
+}
+.content .txt_list {
+  padding: 20px;
+  border: 1px solid #707070;
+  border-radius: 10px;
+  background-color: #E9EEF6;
 }
 
 /*---------------------------------------------

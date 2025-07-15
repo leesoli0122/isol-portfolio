@@ -18,7 +18,10 @@
         }
         .tex_wrap {
             .profile_box {
-                padding:10px;
+                flex-direction:row;
+                gap:20px;
+                width:100%;
+                padding:10px 20px;
             }
             .profile {
                 @include wh (100px,100px);
@@ -27,10 +30,16 @@
                 }
             }
             .profile_tit {
-                padding-top:5px;
-                margin-top:10px;
+                width:calc(100% - 120px);
+                padding-top:0;
+                margin-top:0;
+                border-top:0;
+                border-left:2px solid $border02;
                 li {
-                    padding-bottom:5px;
+                    display:inline-block;
+                    padding:0;
+                    margin:0 10px;
+                    font-weight:$font-w-b;
                 }
             }
         }
