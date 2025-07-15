@@ -5,26 +5,25 @@ let currentDevice = 'desktop';
 function setDevice(device, clickedButton) {
     const container = document.getElementById('mainContainer');
     const buttons = document.querySelectorAll('.preview-controls button');
-    
-    // 기존 클래스 제거
-    container.className = 'main-container';
-    
-    // 새로운 클래스 추가
-    container.classList.add(device + '-preview');
-    
-    // 버튼 활성화 상태 변경
-    buttons.forEach(btn => btn.classList.remove('active'));
-    if (clickedButton) {
-        clickedButton.classList.add('active');
-    }
 
-    currentDevice = device;
+    // 부드러운 전환 위해 살짝 scale down
+    container.style.transform = 'scale(0.97)';
     
-    // 디바이스 변경 애니메이션
-    container.style.transform = 'scale(0.95)';
+    // 100ms 후에 클래스 변경 → 부드럽게 바뀌는 느낌 줌
     setTimeout(() => {
+        // 클래스 초기화
+        container.className = 'main-container';
+        container.classList.add(device + '-preview');
+
+        // 버튼 활성화 상태 변경
+        buttons.forEach(btn => btn.classList.remove('active'));
+        if (clickedButton) clickedButton.classList.add('active');
+
+        currentDevice = device;
+
+        // 원래 크기로 복구
         container.style.transform = 'scale(1)';
-    }, 150);
+    }, 100);
 }
 
 // 키보드 단축키 지원
