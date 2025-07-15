@@ -62,8 +62,8 @@ ul, ol { list-style:none; }
 *,
 *::before,
 *::after { -webkit-box-sizing: border-box; -moz-box-sizing:border-box; box-sizing:border-box; -webkit-text-size-adjust:none; max-height:1000000px; word-break:keep-all; word-wrap:break-word; outline:none; }
-.wrap { position:relative; display:block; padding-top:144px; }
-header { position:fixed; top:0; left:0; z-index:10; width:100%; min-height:45px; background-color: #FFFFFF; }
+.wrap { position:relative; display:block; /* padding-top:144px; */ }
+header { position:fixed; top:0; left:0; z-index:10; width:100%; min-height:45px;}
 /* form { height:100%; } 비밀번호 찾기 화면: 높이를 못 찾아서 주석 처리 */
 html, body, div, ul, ol, dl, li, dt, dd, p, h1, h2, h3, h4, h5, h6, table, thead, tbody, tr, th, td, caption, address,
 canvas, details, figure, figcaption, footer, header, menu, nav, section, article, aside,
@@ -71,3 +71,7 @@ form, fieldset, button, select, textarea, input, fieldset, legend, label, a, spa
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
 [tabindex="-1"]:focus-visible { outline: 0 !important; }
 ul, ol, li, dl, dt, dd  { list-style:none; margin:0; padding:0; box-sizing: border-box; }
+button, a {
+	color:#454545;
+	text-decoration:none;
+}

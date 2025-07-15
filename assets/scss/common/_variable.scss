@@ -52,8 +52,8 @@ $point: #34A853;          // 성공/승인 강조
 $white: #FFFFFF;     // 기본 배경
 
 // Border Colors
-$border01: #F1F3F4;   // 밝은 보더 (입력창 등)
-$border02: #C9C9C9;    // 진한 보더 (hover 등)
+$border01: #878787;   // 밝은 보더 (입력창 등)
+$border02: #707070;    // 진한 보더 (hover 등)
 
 // Highlight / Notification
 $color-highlight: #FBBC04;      // 알림/강조 노란색
@@ -163,6 +163,7 @@ $font50-pc: 4rem;       // 64px
     height:$height;
     background-size:100%;
     background-repeat:no-repeat;
+    background-position:center;
 }
 
 @mixin title($size, $weight, $color) {

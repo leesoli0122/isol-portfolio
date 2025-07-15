@@ -25,72 +25,55 @@
     <!-- E: skipnavi -->
     <!-- S: 화면 사이즈 선택 -->
     <div class="preview-controls">
-        <button onclick="setDevice('desktop')">Desktop</button>
-        <button onclick="setDevice('tablet')">Tablet</button>
-        <button onclick="setDevice('tablet-portrait')">Tablet (Portrait)</button>
-        <button onclick="setDevice('mobile')" class="active">Mobile</button>
+        <button onclick="setDevice('desktop', this)">Desktop</button>
+        <button onclick="setDevice('tablet', this)">Tablet</button>
+        <button onclick="setDevice('tablet-portrait', this)">Tablet (Portrait)</button>
+        <button onclick="setDevice('mobile', this)" class="active">Mobile</button>
     </div>
     <!-- E: 화면 사이즈 선택 -->
 
     <!-- 메인 컨테이너 -->
     <div class="main-container mobile-preview" id="mainContainer">
-        <!-- 헤더 -->
-        <header class="header">
-            <div class="logo">
-                <img src="/assets/images/logo.svg" alt="doridori logo">
+        <div class="wrap">
+            <!-- S: 헤더 -->
+            <div id="header" class="header">
+                <script>
+                    $(document).ready(function(){
+                        $("#header").load("../INCLUDE/inc_header.html");
+                    });
+                </script>
             </div>
-        </header>
+            <!-- E: 헤더 -->
 
-        <!-- 네비게이션 -->
-        <nav class="nav">
-            <a href="#about">Guide</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <!-- 메인 콘텐츠 -->
-        <div id="contentWrap" class="content">
-            <!-- 메인 영역 -->
-            <main>
-                <div class="card">
-                    <h2>프로젝트 소개</h2>
-                    <p>이 프로젝트는 모바일 우선 접근 방식으로 설계된 반응형 웹사이트입니다. 다양한 디바이스에서 최적화된 사용자 경험을 제공합니다.</p>
-                    <div class="caption">2023년 ~ </div>
+            <!-- 메인 콘텐츠 -->
+            <div id="contentWrap" class="content">
+                <!-- 메인 영역 -->
+                <div class="inner">
+                    <main>
+                        <div class="introduce_wrap">
+                            <h2 class="title">Introduce</h2>
+                            <div class="tex_wrap">
+                                <div class="profile">
+                                    프로필 이미지
+                                </div>
+                                <ul>
+                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, voluptatibus minus! Vel ratione nobis incidunt nihil numquam, deserunt laboriosam iure suscipit culpa! Debitis dicta, laborum at soluta animi quas obcaecati?</li>
+                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, voluptatibus minus! Vel ratione nobis incidunt nihil numquam, deserunt laboriosam iure suscipit culpa! Debitis dicta, laborum at soluta animi quas obcaecati?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project_wrap">
+    
+                        </div>
+                    </main>
                 </div>
-
-                <div class="card">
-                    <h2>기술 스택</h2>
-                    <p>초기에는 HTML5, CSS3, JavaScript만을 사용하여 제작되었으며, 이후 점차 SCSS를 도입하고, React 기반으로 리팩터링하여 개발되었습니다. 모바일 우선 디자인 원칙을 따르며, 미디어 쿼리를 통해 태블릿과 데스크탑 환경에도 최적화되어 있습니다.</p>
-                    <div class="caption">반응형 디자인</div>
-                </div>
-
-                <div class="card">
-                    <h2>디자인 컨셉</h2>
-                    <p>레퍼런스를 참고하여 사용자 중심의 깔끔하고 직관적인 레이아웃을 구현했습니다. 
-                        적절한 여백과 기본적인 타이포그래피 구조를 바탕으로 가독성을 고려했으며, 
-                        부드러운 애니메이션과 호버 효과를 통해 사용자와의 상호작용을 개선하고자 했습니다.</p>
-                    <div class="caption">UX/UI 디자인</div>
-                </div>
-            </main>
-
-            <!-- 사이드바 -->
-            <aside class="sidebar">
-                <h3>카테고리</h3>
-                <ul>
-                    <li><a href="#web">웹 개발</a></li>
-                    <li><a href="#mobile">모바일 앱</a></li>
-                    <li><a href="#design">UI/UX 디자인</a></li>
-                    <li><a href="#branding">브랜딩</a></li>
-                    <li><a href="#photography">포토그래피</a></li>
-                </ul>
-            </aside>
+            </div>
+    
+            <!-- 푸터 -->
+            <footer class="footer">
+                <!-- <p>&copy; 2025 포트폴리오. 모든 권리 보유.</p> -->
+            </footer>
         </div>
-
-        <!-- 푸터 -->
-        <footer class="footer">
-            <p>&copy; 2025 포트폴리오. 모든 권리 보유.</p>
-        </footer>
     </div>
 </body>
 </html>

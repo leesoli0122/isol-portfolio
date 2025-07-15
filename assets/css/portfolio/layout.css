@@ -15,20 +15,44 @@
 /***************** PC 변수 *****************/
 /* font-size - PC */
 /***************** 간단한 믹스인들 *****************/
+/*---------------------------------------------
+	#공통
+---------------------------------------------*/
 body {
   background-color: #F6F8FC;
 }
 
 .main-container {
+  transition: transform 0.8s ease, width 0.8s ease;
   background-color: #F6F8FC;
 }
 
-/*---------------------------------------------
-	#skipnavi
----------------------------------------------*/
+.content .inner {
+  padding: 20px;
+}
+.content .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222222;
+}
+@media (min-width: 768px) {
+  .content .title {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 1025px) {
+  .content .title {
+    font-size: 2rem;
+  }
+}
+.content .tex_wrap {
+  padding-top: 10px;
+}
+
+/*---skipnavi---*/
 #skipnavi li a {
   position: absolute;
-  top: -100px;
+  top: -1000px;
   left: 0;
   z-index: 999999;
   display: block;
@@ -50,87 +74,190 @@ body {
   line-height: 1;
 }
 
-/*---------------------------------------------
-	#프리뷰
----------------------------------------------*/
-/* 프리뷰 컨트롤 */
+/*---프리뷰 컨트롤---*/
 .preview-controls {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 10px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 52px;
   padding: 10px 20px;
-  -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  background-color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: rgba(153, 153, 153, 0.3137254902);
 }
 .preview-controls button {
   padding: 8px 16px;
-  border: 2px solid #1A73E8;
+  border: 2px solid #222222;
   border-radius: 5px;
   background: #FFFFFF;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #1A73E8;
+  color: #222222;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .preview-controls button:hover, .preview-controls button.active {
-  background: #1A73E8;
+  background: #222222;
   font-weight: 600;
   color: #FFFFFF;
 }
 
-/* 프리뷰 모드 스타일 */
-.mobile-preview {
-  max-width: 375px !important;
-  margin: 54px auto 0;
-  padding: 20px !important;
-}
-
-.tablet-preview {
-  max-width: 768px !important;
-  margin: 0 auto;
-  padding: 30px !important;
-}
-
-.tablet-portrait-preview {
-  max-width: 600px !important;
-  margin: 0 auto;
-  padding: 25px !important;
-}
-
-.desktop-preview {
-  max-width: 1200px !important;
-  margin: 0 auto;
-  padding: 60px !important;
+/*---헤더---*/
+.main-container header {
+  background-color: #F6F8FC;
+  border-bottom: 4px solid #2A98E6;
 }
 
 /*---------------------------------------------
-	#헤더
+	#모바일
 ---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.mobile-preview {
+  max-width: 375px !important;
+  margin: 150px auto 0;
+  border: 1px solid #707070;
+  border-radius: 20px;
+}
+.mobile-preview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 20px;
+  border-radius: 20px 20px 0 0;
+  background-color: rgba(0, 0, 0, 0.1411764706);
+}
+.mobile-preview .wrap {
+  padding-top: 20px;
+}
+
+/*---헤더---*/
 .header {
-  background-color: #F6F8FC;
+  background-color: #FFFFFF;
+  padding: 0 20px;
+}
+.header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .logo {
+  display: inline-block;
+  padding: 10px 0;
 }
 .header .logo img {
   width: 140px;
-  height: 20px;
-  margin-bottom: 10px;
 }
-.header .logo::before {
-  content: "";
+.header .gnb {
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-image: url("/assets/images/me.svg");
 }
+.header .gnb .menu_btn {
+  font-size: 0;
+}
+.header .gnb .menu_btn::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
+  background-color: #222222;
+  vertical-align: text-bottom;
+  -webkit-mask-image: url("/assets/images/menu.svg");
+  mask-image: url("/assets/images/menu.svg");
+}
+.header .gnb ul {
+  position: absolute;
+  top: 0;
+  right: -270px;
+  display: none;
+  width: 160px;
+  padding: 20px;
+  border-radius: 10px 0 0 10px;
+  background-color: #E9EEF6;
+  z-index: 1;
+}
+.header .gnb li {
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #707070;
+}
+.header .gnb.on {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3215686275);
+}
+.header .gnb.on .menu_btn {
+  position: absolute;
+  top: -15px;
+  right: 135px;
+  width: 40px;
+  height: 30px;
+  border-radius: 10px 0 0 10px;
+  background-size: 80%;
+  background-color: #E9EEF6;
+}
+.header .gnb.on .menu_btn::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header .gnb.on ul {
+  position: absolute;
+  top: -22px;
+  right: -21px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/*---------------------------------------------
+	#테블릿
+---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.tablet-preview {
+  max-width: 768px !important;
+  margin: 0 auto;
+}
+.tablet-preview .wrap {
+  padding-top: 52px;
+}
+
+/*---헤더---*/
+/*---------------------------------------------
+	#테블릿(portrait)
+---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.tablet-portrait-preview {
+  max-width: 600px !important;
+  margin: 0 auto;
+}
+.tablet-portrait-preview .wrap {
+  padding-top: 52px;
+}
+
+/*---헤더---*/
+/*---------------------------------------------
+	#테블릿(portrait)
+---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.desktop-preview {
+  max-width: 1200px !important;
+  margin: 0 auto;
+}
+.desktop-preview .wrap {
+  padding-top: 52px;
+}
+
+/*---헤더---*/

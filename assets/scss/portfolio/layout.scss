@@ -1,19 +1,35 @@
 @import '../common/variable';
-
+/*---------------------------------------------
+	#공통
+---------------------------------------------*/
 body {
   background-color:$background01;
 }
 
 .main-container {
+  transition: transform 0.8s ease, width 0.8s ease;
   background-color:$background01;
 }
-/*---------------------------------------------
-	#skipnavi
----------------------------------------------*/
+
+.content {
+  .inner {
+    padding:20px;
+  }
+  .title {
+    @include font-title();
+    font-weight:$font-w-b;
+    color:$color22;
+  }
+  .tex_wrap {
+    padding-top:10px;
+  }
+}
+
+/*---skipnavi---*/
 #skipnavi {
   li {
     a {
-      @include absolute ($position:absolute, $top:-100px, $left:0);
+      @include absolute ($position:absolute, $top:-1000px, $left:0);
       z-index:999999;
       display:block;
       width:100%;
@@ -34,77 +50,170 @@ body {
   }
 }
 
-/*---------------------------------------------
-	#프리뷰
----------------------------------------------*/
-/* 프리뷰 컨트롤 */
+/*---프리뷰 컨트롤---*/
 .preview-controls {
   @include absolute ($position:fixed, $top:0, $right:0, $left:0);
   z-index: 1000;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  height:52px;
   padding:10px 20px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  background-color:$white;
+  background-color:#99999950;
   button {
     padding: 8px 16px;
-    border: 2px solid $primary;
+    border: 2px solid $color22;
     border-radius: 5px;
     background:$white;
     font-size:$font12;
     font-weight:$font-w-m;
-    color: $primary;
+    color: $color22;
     cursor: pointer;
     transition: all 0.3s ease;
     &:hover, &.active {
-      background: $primary;
+      background: $color22;
       font-weight:$font-w-b;
       color:$white;
     }
   }
 }
 
-/* 프리뷰 모드 스타일 */
-.mobile-preview {
-  max-width: 375px !important;
-  margin:54px auto 0;
-  padding: 20px !important;
-}
-
-.tablet-preview {
-  max-width: 768px !important;
-  margin: 0 auto;
-  padding: 30px !important;
-}
-
-.tablet-portrait-preview {
-  max-width: 600px !important;
-  margin: 0 auto;
-  padding: 25px !important;
-}
-
-.desktop-preview {
-  max-width: 1200px !important;
-  margin: 0 auto;
-  padding: 60px !important;
+/*---헤더---*/
+.main-container {
+  header {
+    background-color:$background01;
+    border-bottom:4px solid $background03;
+  }
 }
 
 /*---------------------------------------------
-	#헤더
+	#모바일
 ---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.mobile-preview {
+  max-width: 375px !important;
+  margin:150px auto 0;
+  border:1px solid $border02;
+  border-radius:20px;
+  &::before {
+    content:"";
+    @include absolute ($position:absolute, $top:0, $right:0, $left:0);
+    display:block;
+    @include wh (100%, 20px);
+    border-radius:20px 20px 0 0;
+    background-color:#00000024;
+  }
+  .wrap {
+    padding-top:20px;
+  }
+}
+
+/*---헤더---*/
 .header {
-  background-color:$background01;
+  background-color:$white;
+  padding:0 20px;
+  .inner {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
   .logo {
+    display:inline-block;
+    padding:10px 0;
     img {
-      @include wh (140px,20px);
-      margin-bottom:10px;
+      width:140px;
     }
-    &::before {
-      content:"";
-      display:inline-block;
-      @include icon (50px,50px);
-      background-image:url("/assets/images/me.svg");
+  }
+  .gnb {
+    display:inline-block;
+    .menu_btn {
+      font-size:0;
+      &::before {
+        content:"";
+        display:block;
+        @include wh (20px,20px);
+        @include mask ($color22);
+        -webkit-mask-image:url("/assets/images/menu.svg");
+        mask-image:url("/assets/images/menu.svg");
+      }
+    }
+    ul {
+      @include absolute ($position:absolute, $top:0, $right:-270px);
+      display:none;
+      width:160px;
+      padding:20px;
+      border-radius:10px 0 0 10px;
+      background-color:$background02;
+      z-index:1;
+    }
+    li {
+      width:100%;
+      padding-bottom:5px;
+      border-bottom:1px solid $border02;
+    }
+    &.on {
+      width:100%;
+      background-color:#00000052;
+      .menu_btn {
+        @include absolute ($position:absolute, $top:-15px, $right:135px);
+        @include wh (40px,30px);
+        border-radius:10px 0 0 10px;
+        background-size:80%;
+        background-color:$background02;
+        &::before {
+          @include absolute ($position:absolute, $top:50%, $left:50%);
+          transform:translate(-50%,-50%);
+        }
+      }
+      ul {
+        @include absolute ($position:absolute, $top:-22px, $right:-21px);
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+      }
     }
   }
 }
+
+/*---------------------------------------------
+	#테블릿
+---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.tablet-preview {
+  max-width: 768px !important;
+  margin: 0 auto;
+  .wrap {
+    padding-top:52px;
+  }
+}
+
+/*---헤더---*/
+
+/*---------------------------------------------
+	#테블릿(portrait)
+---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.tablet-portrait-preview {
+  max-width: 600px !important;
+  margin: 0 auto;
+  .wrap {
+    padding-top:52px;
+  }
+}
+
+/*---헤더---*/
+
+/*---------------------------------------------
+	#테블릿(portrait)
+---------------------------------------------*/
+/*---프리뷰 컨트롤---*/
+.desktop-preview {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  .wrap {
+    padding-top:52px;
+  }
+}
+
+/*---헤더---*/
