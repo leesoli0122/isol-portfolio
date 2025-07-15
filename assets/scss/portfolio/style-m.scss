@@ -1,0 +1,38 @@
+@use '../common/variable' as *;
+@use '../common/mixins' as *;
+
+/*---------------------------------------------
+	#모바일
+---------------------------------------------*/
+@media (max-width: 767px) {
+    /*---content---*/
+    .mobile-preview {
+        .wrap {
+            padding-top:20px;
+        }
+        /* introduce */
+        .introduce_wrap {
+            .tex_wrap {
+                flex-direction:column;
+            }
+        }
+        .tex_wrap {
+            .profile_box {
+                padding:10px;
+            }
+            .profile {
+                @include wh (100px,100px);
+                img {
+                    @include wh (100%, 100%);
+                }
+            }
+            .profile_tit {
+                padding-top:5px;
+                margin-top:10px;
+                li {
+                    padding-bottom:5px;
+                }
+            }
+        }
+    }
+}
