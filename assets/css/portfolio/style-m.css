@@ -20,31 +20,31 @@
 ---------------------------------------------*/
 @media (max-width: 767px) {
   /*---content---*/
-  .mobile-preview {
+  .main-container {
     /* introduce */
   }
-  .mobile-preview .wrap {
+  .main-container .wrap {
     padding-top: 20px;
   }
-  .mobile-preview .introduce_wrap .tex_wrap {
+  .main-container .introduce_wrap .tex_wrap {
     flex-direction: column;
   }
-  .mobile-preview .tex_wrap .profile_box {
+  .main-container .tex_wrap .profile_box {
     padding: 10px;
   }
-  .mobile-preview .tex_wrap .profile {
+  .main-container .tex_wrap .profile {
     width: 100px;
     height: 100px;
   }
-  .mobile-preview .tex_wrap .profile img {
+  .main-container .tex_wrap .profile img {
     width: 100%;
     height: 100%;
   }
-  .mobile-preview .tex_wrap .profile_tit {
+  .main-container .tex_wrap .profile_tit {
     padding-top: 5px;
     margin-top: 10px;
   }
-  .mobile-preview .tex_wrap .profile_tit li {
+  .main-container .tex_wrap .profile_tit li {
     padding-bottom: 5px;
   }
 }
