@@ -25,15 +25,15 @@
     <!-- E: skipnavi -->
     <!-- S: 화면 사이즈 선택 -->
     <div class="preview-controls">
-        <button onclick="setDevice('desktop', this)">Desktop</button>
+        <button onclick="setDevice('desktop', this)" class="active">Desktop</button>
         <button onclick="setDevice('tablet', this)">Tablet</button>
         <button onclick="setDevice('tablet-portrait', this)">Tablet (Portrait)</button>
-        <button onclick="setDevice('mobile', this)" class="active">Mobile</button>
+        <button onclick="setDevice('mobile', this)">Mobile</button>
     </div>
     <!-- E: 화면 사이즈 선택 -->
 
     <!-- 메인 컨테이너 -->
-    <div class="main-container mobile-preview" id="mainContainer">
+    <div class="main-container desktop-preview" id="mainContainer">
         <div class="wrap">
             <!-- S: 헤더 -->
             <div id="header" class="header">
@@ -50,13 +50,19 @@
                 <!-- 메인 영역 -->
                 <div class="inner">
                     <main>
+                        <h2 class="title">Introduce</h2>
                         <div class="introduce_wrap">
-                            <h2 class="title">Introduce</h2>
                             <div class="tex_wrap">
-                                <div class="profile">
-                                    프로필 이미지
+                                <div class="profile_box">
+                                    <div class="profile">
+                                        <img src="/assets/images/me.svg" alt="프로필 이미지">
+                                    </div>
+                                    <ul class="profile_tit">
+                                        <li>Web Publisher</li>
+                                        <li>Lee Sol</li>
+                                    </ul>
                                 </div>
-                                <ul>
+                                <ul class="txt_list">
                                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, voluptatibus minus! Vel ratione nobis incidunt nihil numquam, deserunt laboriosam iure suscipit culpa! Debitis dicta, laborum at soluta animi quas obcaecati?</li>
                                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, voluptatibus minus! Vel ratione nobis incidunt nihil numquam, deserunt laboriosam iure suscipit culpa! Debitis dicta, laborum at soluta animi quas obcaecati?</li>
                                 </ul>

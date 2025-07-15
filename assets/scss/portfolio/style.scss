@@ -1,0 +1,169 @@
+@use '../common/variable' as *;
+@use '../common/mixins' as *;
+/*---------------------------------------------
+	#공통
+---------------------------------------------*/
+/*---skipnavi---*/
+#skipnavi {
+    li {
+        a {
+            @include absolute ($position:absolute, $top:-1000px, $left:0);
+            z-index:999999;
+            display:block;
+            width:100%;
+            font-size:$font16;
+            text-align:center;
+            line-height:1;
+            letter-spacing:0;
+            &:focus-visible {
+            @include absolute ($position:absolute, $top:0, $left:0);
+            padding:20px 0;
+            background-color:#EAEAEA;
+            border:1px solid $color75;
+            font-weight:$font-w-b;
+            color:$color22;
+            line-height:1;
+            }
+        }
+    }
+}
+
+/*---프리뷰 컨트롤---*/
+.preview-controls {
+    @include absolute ($position:fixed, $top:0, $right:0, $left:0);
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    height:52px;
+    padding:10px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    background-color:#99999950;
+    @media (max-width: 767px) {
+        display: none; // 모바일일 땐 숨김
+    }
+    button {
+        padding: 8px 16px;
+        border: 2px solid $color22;
+        border-radius: 5px;
+        background:$white;
+        font-size:$font12;
+        font-weight:$font-w-m;
+        color:$color22;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover, &.active {
+            background:$color22;
+            font-weight:$font-w-b;
+            color:$white;
+        }
+    }
+}
+
+/*---content---*/
+.introduce_wrap {
+    .tex_wrap {
+        display:flex;
+        align-items:center;
+        gap:20px;
+    }
+}
+
+.tex_wrap {
+    .profile_box {
+        display:flex;
+        align-items:center;
+        flex-direction: column;
+        padding:20px;
+        border-radius:15px;
+        background-color:$white;
+        box-shadow:1px 1px 3px 0px #9da5b3;
+    }
+    .profile {
+        @include wh (200px,200px);
+        border-radius:50%;
+        background-color:$background02;
+    }
+    .profile_tit {
+        padding-top:15px;
+        margin-top:20px;
+        border-top:2px solid $border02;
+        text-align:center;
+        li {
+            padding-bottom:10px;
+            @include font-body();
+            &:last-child {
+                padding-bottom:0;
+            }
+        }
+    }
+    .txt_list {
+        padding:0 10px;
+    }
+}
+
+/*---------------------------------------------
+	#모바일
+---------------------------------------------*/
+/*---content---*/
+.mobile-preview {
+    .wrap {
+        padding-top:20px;
+    }
+    /* introduce */
+    .introduce_wrap {
+        .tex_wrap {
+            flex-direction:column;
+        }
+    }
+    .tex_wrap {
+        .profile_box {
+            padding:10px;
+        }
+        .profile {
+            @include wh (100px,100px);
+            img {
+                @include wh (100%, 100%);
+            }
+        }
+        .profile_tit {
+            padding-top:5px;
+            margin-top:10px;
+            li {
+                padding-bottom:5px;
+            }
+        }
+    }
+}
+/*---------------------------------------------
+	#테블릿
+---------------------------------------------*/
+/*---content---*/
+.tablet-preview {
+    .tex_wrap {
+        .profile {
+            @include wh (180px,180px);
+            img {
+                @include wh (100%,100%);
+            }
+        }
+    }
+}
+
+/*---------------------------------------------
+	#테블릿(portrait)
+---------------------------------------------*/
+/*---content---*/
+.tablet-portrait-preview {
+    .tex_wrap {
+        .profile {
+            @include wh (150px,150px);
+            img {
+                @include wh (100%,100%);
+            }
+        }
+    }
+}
+/*---------------------------------------------
+	#desktop
+---------------------------------------------*/

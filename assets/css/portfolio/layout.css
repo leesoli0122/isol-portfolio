@@ -31,6 +31,8 @@ body {
   padding: 20px;
 }
 .content .title {
+  padding-bottom: 10px;
+  border-bottom: 4px solid #2A98E6;
   font-size: 1.5rem;
   font-weight: 600;
   color: #222222;
@@ -46,76 +48,12 @@ body {
   }
 }
 .content .tex_wrap {
-  padding-top: 10px;
-}
-
-/*---skipnavi---*/
-#skipnavi li a {
-  position: absolute;
-  top: -1000px;
-  left: 0;
-  z-index: 999999;
-  display: block;
-  width: 100%;
-  font-size: 1rem;
-  text-align: center;
-  line-height: 1;
-  letter-spacing: 0;
-}
-#skipnavi li a:focus-visible {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px 0;
-  background-color: #EAEAEA;
-  border: 1px solid #757575;
-  font-weight: 600;
-  color: #222222;
-  line-height: 1;
-}
-
-/*---프리뷰 컨트롤---*/
-.preview-controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  height: 52px;
-  padding: 10px 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  background-color: rgba(153, 153, 153, 0.3137254902);
-}
-.preview-controls button {
-  padding: 8px 16px;
-  border: 2px solid #222222;
-  border-radius: 5px;
-  background: #FFFFFF;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #222222;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.preview-controls button:hover, .preview-controls button.active {
-  background: #222222;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-
-/*---헤더---*/
-.main-container header {
-  background-color: #F6F8FC;
-  border-bottom: 4px solid #2A98E6;
+  padding-top: 40px;
 }
 
 /*---------------------------------------------
 	#모바일
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .mobile-preview {
   max-width: 375px !important;
   margin: 150px auto 0;
@@ -133,9 +71,6 @@ body {
   height: 20px;
   border-radius: 20px 20px 0 0;
   background-color: rgba(0, 0, 0, 0.1411764706);
-}
-.mobile-preview .wrap {
-  padding-top: 20px;
 }
 
 /*---헤더---*/
@@ -225,7 +160,6 @@ body {
 /*---------------------------------------------
 	#테블릿
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .tablet-preview {
   max-width: 768px !important;
   margin: 0 auto;
@@ -238,7 +172,6 @@ body {
 /*---------------------------------------------
 	#테블릿(portrait)
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .tablet-portrait-preview {
   max-width: 600px !important;
   margin: 0 auto;
@@ -249,9 +182,8 @@ body {
 
 /*---헤더---*/
 /*---------------------------------------------
-	#테블릿(portrait)
+	#desktop
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .desktop-preview {
   max-width: 1200px !important;
   margin: 0 auto;
@@ -261,3 +193,22 @@ body {
 }
 
 /*---헤더---*/
+.header {
+  background-color: #FFFFFF;
+  padding: 0 20px;
+}
+.header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .logo {
+  display: inline-block;
+  padding: 10px 0;
+}
+.header .logo img {
+  width: 140px;
+}
+.header .gnb {
+  display: none;
+}

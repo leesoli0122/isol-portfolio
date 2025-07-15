@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/*---------------------------------------------
+	#변수 지정하기 - 반응형 대응
+---------------------------------------------*/
+/***************** 브레이크포인트 *****************/
+/***************** 기본 변수 (모바일 우선) *****************/
+/* font-size - 모바일 */
+/* font-weight */
+/* text color */
+/* background */
+/* Primary */
+/* Accent, Point */
+/***************** 태블릿 변수 *****************/
+/* font-size - 태블릿 */
+/***************** PC 변수 *****************/
+/* font-size - PC */
+/***************** 간단한 믹스인들 *****************/
+/*---------------------------------------------
+	#공통
+---------------------------------------------*/
+/*---skipnavi---*/
+#skipnavi li a {
+  position: absolute;
+  top: -1000px;
+  left: 0;
+  z-index: 999999;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 0;
+}
+#skipnavi li a:focus-visible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  background-color: #EAEAEA;
+  border: 1px solid #757575;
+  font-weight: 600;
+  color: #222222;
+  line-height: 1;
+}
+
+/*---프리뷰 컨트롤---*/
+.preview-controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  height: 52px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: rgba(153, 153, 153, 0.3137254902);
+}
+@media (max-width: 767px) {
+  .preview-controls {
+    display: none;
+  }
+}
+.preview-controls button {
+  padding: 8px 16px;
+  border: 2px solid #222222;
+  border-radius: 5px;
+  background: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #222222;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.preview-controls button:hover, .preview-controls button.active {
+  background: #222222;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/*---content---*/
+.introduce_wrap .tex_wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tex_wrap .profile_box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 3px 0px #9da5b3;
+}
+.tex_wrap .profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #E9EEF6;
+}
+.tex_wrap .profile_tit {
+  padding-top: 15px;
+  margin-top: 20px;
+  border-top: 2px solid #707070;
+  text-align: center;
+}
+.tex_wrap .profile_tit li {
+  padding-bottom: 10px;
+  font-size: 0.875rem;
+}
+@media (min-width: 768px) {
+  .tex_wrap .profile_tit li {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1025px) {
+  .tex_wrap .profile_tit li {
+    font-size: 1rem;
+  }
+}
+.tex_wrap .profile_tit li:last-child {
+  padding-bottom: 0;
+}
+.tex_wrap .txt_list {
+  padding: 0 10px;
+}
+
+/*---------------------------------------------
+	#모바일
+---------------------------------------------*/
+/*---content---*/
+.mobile-preview {
+  /* introduce */
+}
+.mobile-preview .wrap {
+  padding-top: 20px;
+}
+.mobile-preview .introduce_wrap .tex_wrap {
+  flex-direction: column;
+}
+.mobile-preview .tex_wrap .profile_box {
+  padding: 10px;
+}
+.mobile-preview .tex_wrap .profile {
+  width: 100px;
+  height: 100px;
+}
+.mobile-preview .tex_wrap .profile img {
+  width: 100%;
+  height: 100%;
+}
+.mobile-preview .tex_wrap .profile_tit {
+  padding-top: 5px;
+  margin-top: 10px;
+}
+.mobile-preview .tex_wrap .profile_tit li {
+  padding-bottom: 5px;
+}
+
+/*---------------------------------------------
+	#테블릿
+---------------------------------------------*/
+/*---content---*/
+.tablet-preview .tex_wrap .profile {
+  width: 180px;
+  height: 180px;
+}
+.tablet-preview .tex_wrap .profile img {
+  width: 100%;
+  height: 100%;
+}
+
+/*---------------------------------------------
+	#테블릿(portrait)
+---------------------------------------------*/
+/*---content---*/
+.tablet-portrait-preview .tex_wrap .profile {
+  width: 150px;
+  height: 150px;
+}
+.tablet-portrait-preview .tex_wrap .profile img {
+  width: 100%;
+  height: 100%;
+}
+
+/*---------------------------------------------
+	#desktop
+---------------------------------------------*/

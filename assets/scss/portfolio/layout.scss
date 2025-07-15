@@ -1,4 +1,5 @@
-@import '../common/variable';
+@use '../common/variable' as *;
+@use '../common/mixins' as *;
 /*---------------------------------------------
 	#공통
 ---------------------------------------------*/
@@ -16,99 +17,34 @@ body {
     padding:20px;
   }
   .title {
+    padding-bottom:10px;
+    border-bottom:4px solid $background03;
     @include font-title();
     font-weight:$font-w-b;
     color:$color22;
   }
   .tex_wrap {
-    padding-top:10px;
-  }
-}
-
-/*---skipnavi---*/
-#skipnavi {
-  li {
-    a {
-      @include absolute ($position:absolute, $top:-1000px, $left:0);
-      z-index:999999;
-      display:block;
-      width:100%;
-      font-size:$font16;
-      text-align:center;
-      line-height:1;
-      letter-spacing:0;
-      &:focus-visible {
-        @include absolute ($position:absolute, $top:0, $left:0);
-        padding:20px 0;
-        background-color:#EAEAEA;
-        border:1px solid $color75;
-        font-weight:$font-w-b;
-        color:$color22;
-        line-height:1;
-      }
-    }
-  }
-}
-
-/*---프리뷰 컨트롤---*/
-.preview-controls {
-  @include absolute ($position:fixed, $top:0, $right:0, $left:0);
-  z-index: 1000;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  height:52px;
-  padding:10px 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  background-color:#99999950;
-  button {
-    padding: 8px 16px;
-    border: 2px solid $color22;
-    border-radius: 5px;
-    background:$white;
-    font-size:$font12;
-    font-weight:$font-w-m;
-    color: $color22;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    &:hover, &.active {
-      background: $color22;
-      font-weight:$font-w-b;
-      color:$white;
-    }
-  }
-}
-
-/*---헤더---*/
-.main-container {
-  header {
-    background-color:$background01;
-    border-bottom:4px solid $background03;
+    padding-top:40px;
   }
 }
 
 /*---------------------------------------------
 	#모바일
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .mobile-preview {
   max-width: 375px !important;
   margin:150px auto 0;
   border:1px solid $border02;
   border-radius:20px;
   &::before {
-    content:"";
-    @include absolute ($position:absolute, $top:0, $right:0, $left:0);
-    display:block;
-    @include wh (100%, 20px);
-    border-radius:20px 20px 0 0;
-    background-color:#00000024;
-  }
-  .wrap {
-    padding-top:20px;
+      content:"";
+      @include absolute ($position:absolute, $top:0, $right:0, $left:0);
+      display:block;
+      @include wh (100%, 20px);
+      border-radius:20px 20px 0 0;
+      background-color:#00000024;
   }
 }
-
 /*---헤더---*/
 .header {
   background-color:$white;
@@ -179,12 +115,11 @@ body {
 /*---------------------------------------------
 	#테블릿
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .tablet-preview {
   max-width: 768px !important;
   margin: 0 auto;
   .wrap {
-    padding-top:52px;
+      padding-top:52px;
   }
 }
 
@@ -193,27 +128,43 @@ body {
 /*---------------------------------------------
 	#테블릿(portrait)
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .tablet-portrait-preview {
   max-width: 600px !important;
   margin: 0 auto;
   .wrap {
-    padding-top:52px;
+      padding-top:52px;
   }
 }
 
 /*---헤더---*/
 
 /*---------------------------------------------
-	#테블릿(portrait)
+	#desktop
 ---------------------------------------------*/
-/*---프리뷰 컨트롤---*/
 .desktop-preview {
   max-width: 1200px !important;
   margin: 0 auto;
   .wrap {
-    padding-top:52px;
+      padding-top:52px;
   }
 }
-
 /*---헤더---*/
+.header {
+  background-color:$white;
+  padding:0 20px;
+  .inner {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo {
+    display:inline-block;
+    padding:10px 0;
+    img {
+      width:140px;
+    }
+  }
+  .gnb {
+    display:none;
+  }
+}
