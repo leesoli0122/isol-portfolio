@@ -1,4 +1,4 @@
-@use '../common/variable' as *;
+@use '../partial/variable' as *;
 /***************** 간단한 믹스인들 *****************/
 // 반응형 폰트 사이즈 (모바일, 태블릿, PC 순서)
 @mixin font-responsive($mobile, $tablet, $desktop) {

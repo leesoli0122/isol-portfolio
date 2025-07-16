@@ -1,132 +1,135 @@
-@use '../common/variable' as *;
-@use '../common/mixins' as *;
+@use '../partial/variable' as *;
+@use '../partial/mixins' as *;
+@use '../partial/common' as *;
 /*---------------------------------------------
 	#공통
 ---------------------------------------------*/
 body {
-  background-color:$background01;
+    background-color:$background01;
 }
 
 .main-container {
-  transition: transform 0.8s ease, width 0.8s ease;
-  background-color:$background01;
+    transition: transform 0.8s ease, width 0.8s ease;
+    background-color:$background01;
 }
 
 .content {
-  .inner {
-    padding:20px;
-  }
-  .title {
-    padding:20px 0 10px;
-    border-bottom:4px solid $background03;
-    font-weight:$font-w-b;
-    color:$color22;
-    @include font-title;
-  }
-  .tex_wrap {
-    padding-top:40px;
-  }
-  .txt_list {
-    padding:20px;
-    border:1px solid $border02;
-    border-radius:10px;
-    background-color:$background02;
-  }
+    .inner {
+        padding:45px 20px 20px;
+    }
+    .title {
+        padding:20px 0 10px;
+        border-bottom:4px solid $background03;
+        font-weight:$font-w-b;
+        color:$color22;
+        @include font-title;
+    }
+    .tex_wrap {
+        padding-top:40px;
+    }
+    .txt_list {
+        padding:20px;
+        border:1px solid $border02;
+        border-radius:10px;
+        background-color:$background02;
+    }
 }
 
 /*---------------------------------------------
 	#모바일
 ---------------------------------------------*/
 .mobile-preview {
-  max-width: 375px !important;
-  margin:150px auto 0;
-  border:1px solid $border02;
-  border-radius:20px;
-  &::before {
-      content:"";
-      @include absolute ($position:absolute, $top:0, $right:0, $left:0);
-      display:block;
-      @include wh (100%, 20px);
-      border-radius:20px 20px 0 0;
-      background-color:#00000024;
-  }
+    max-width: 375px !important;
+    margin:150px auto 0;
+    border:1px solid $border02;
+    border-radius:20px;
+    &::before {
+        content:"";
+        @include absolute ($position:absolute, $top:0, $right:0, $left:0);
+        display:block;
+        @include wh (100%, 20px);
+        border-radius:20px 20px 0 0;
+        background-color:#00000024;
+    }
 }
 /*---헤더---*/
 .header {
-  background-color:$white;
-  padding:0 20px;
-  .inner {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-  .logo {
-    display:inline-block;
-    padding:10px 0;
-    img {
-      width:140px;
-    }
-  }
-  .gnb {
-    display:inline-block;
-    .menu_btn {
-      font-size:0;
-      &::before {
-        content:"";
-        display:block;
-        @include wh (20px,20px);
-        @include mask ($color22);
-        -webkit-mask-image:url("/assets/images/menu.svg");
-        mask-image:url("/assets/images/menu.svg");
-      }
-    }
-    ul {
-      @include absolute ($position:absolute, $top:0, $right:-270px);
-      display:none;
-      width:160px;
-      padding:20px;
-      border-radius:10px 0 0 10px;
-      background-color:$background02;
-      z-index:1;
-    }
-    li {
-      width:100%;
-      padding-bottom:5px;
-      border-bottom:1px solid $border02;
-    }
-    &.on {
-      width:100%;
-      background-color:#00000052;
-      .menu_btn {
-        @include absolute ($position:absolute, $top:-15px, $right:135px);
-        @include wh (40px,30px);
-        border-radius:10px 0 0 10px;
-        background-size:80%;
-        background-color:$background02;
-        &::before {
-          @include absolute ($position:absolute, $top:50%, $left:50%);
-          transform:translate(-50%,-50%);
-        }
-      }
-      ul {
-        @include absolute ($position:absolute, $top:-22px, $right:-21px);
+    @include absolute($position:fixed, $right:0, $left:0);
+    height:45px;
+    background-color:$white;
+    padding:0 20px;
+    .inner {
         display:flex;
-        flex-direction:column;
-        gap:15px;
-      }
+        align-items:center;
+        justify-content:space-between;
     }
-  }
+    .logo {
+        display:inline-block;
+        padding:10px 0;
+        img {
+        width:140px;
+        }
+    }
+    .gnb {
+        display:inline-block;
+        .menu_btn {
+            font-size:0;
+            &::before {
+                content:"";
+                display:block;
+                @include wh (20px,20px);
+                @include mask ($color22);
+                -webkit-mask-image:url("/assets/images/menu.svg");
+                mask-image:url("/assets/images/menu.svg");
+            }
+        }
+        ul {
+        @include absolute ($position:absolute, $top:0, $right:-270px);
+        display:none;
+        width:160px;
+        padding:20px;
+        border-radius:10px 0 0 10px;
+        background-color:$background02;
+        z-index:1;
+        }
+        li {
+        width:100%;
+        padding-bottom:5px;
+        border-bottom:1px solid $border02;
+        }
+        &.on {
+        width:100%;
+        background-color:#00000052;
+        .menu_btn {
+            @include absolute ($position:absolute, $top:-15px, $right:135px);
+            @include wh (40px,30px);
+            border-radius:10px 0 0 10px;
+            background-size:80%;
+            background-color:$background02;
+            &::before {
+            @include absolute ($position:absolute, $top:50%, $left:50%);
+            transform:translate(-50%,-50%);
+            }
+        }
+        ul {
+            @include absolute ($position:absolute, $top:-22px, $right:-21px);
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+        }
+    }
 }
 
 /*---------------------------------------------
 	#테블릿
 ---------------------------------------------*/
 .tablet-preview {
-  max-width: 768px !important;
-  margin: 0 auto;
-  .wrap {
-      padding-top:52px;
-  }
+    max-width: 768px !important;
+    margin: 0 auto;
+    .wrap {
+        padding-top:52px;
+    }
 }
 
 /*---헤더---*/
@@ -135,11 +138,11 @@ body {
 	#테블릿(portrait)
 ---------------------------------------------*/
 .tablet-portrait-preview {
-  max-width: 600px !important;
-  margin: 0 auto;
-  .wrap {
-      padding-top:52px;
-  }
+    max-width: 600px !important;
+    margin: 0 auto;
+    .wrap {
+        padding-top:52px;
+    }
 }
 
 /*---헤더---*/
@@ -148,29 +151,29 @@ body {
 	#desktop
 ---------------------------------------------*/
 .desktop-preview {
-  max-width: 1200px !important;
-  margin: 0 auto;
-  .wrap {
-      padding-top:52px;
-  }
+    max-width: 1200px !important;
+    margin: 0 auto;
+    .wrap {
+        padding-top:52px;
+    }
 }
 /*---헤더---*/
 .header {
-  background-color:$white;
-  padding:0 20px;
-  .inner {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-  .logo {
-    display:inline-block;
-    padding:10px 0;
-    img {
-      width:140px;
+    background-color:$white;
+    padding:0 20px;
+    .inner {
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
     }
-  }
-  .gnb {
-    display:none;
-  }
+    .logo {
+        display:inline-block;
+        padding:10px 0;
+        img {
+        width:140px;
+        }
+    }
+    .gnb {
+        display:none;
+    }
 }

@@ -19,5 +19,6 @@
     "> 1%",
     "last 2 versions"
   ],
-  "liveSassCompile.settings.showOutputWindow": true
+  "liveSassCompile.settings.showOutputWindow": true,
+  "liveServer.settings.port": 5501
 }

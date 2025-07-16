@@ -1,5 +1,6 @@
-@use '../common/variable' as *;
-@use '../common/mixins' as *;
+@use '../partial/variable' as *;
+@use '../partial/mixins' as *;
+@use '../partial/common' as *;
 
 /*---------------------------------------------
 	#모바일
