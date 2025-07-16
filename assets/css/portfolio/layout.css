@@ -91,6 +91,28 @@ body {
   background-color: #F6F8FC;
 }
 
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  z-index: 1;
+}
+.header .inner {
+  height: 100%;
+  padding: 0 20px;
+}
+.header .logo {
+  display: inline-block;
+  padding: 10px 0;
+}
+.header .logo img {
+  height: 24px;
+}
+.header .gnb {
+  display: none;
+}
+
 .content .inner {
   padding: 45px 20px 20px;
 }
@@ -144,49 +166,22 @@ body {
   background-color: rgba(0, 0, 0, 0.1411764706);
 }
 .mobile-preview .header {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 45px;
-  background-color: #FFFFFF;
-  padding: 0 20px;
-  border-radius: 20px 20px 0 0;
-  z-index: 1;
-}
-.mobile-preview .header .inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.mobile-preview .header .logo {
-  display: inline-block;
-  padding: 10px 0;
-}
-.mobile-preview .header .logo img {
-  width: 140px;
+  height: 60px;
+  min-height: 60px;
 }
 .mobile-preview .header .gnb {
   display: inline-block;
   z-index: 1;
 }
 .mobile-preview .header .gnb .menu_btn {
-  font-size: 0;
-}
-.mobile-preview .header .gnb .menu_btn::before {
-  content: "";
   display: block;
-  width: 20px;
-  height: 20px;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100%;
-  mask-size: 100%;
-  -webkit-mask-position: center;
-  mask-position: center;
-  background-color: #222222;
-  vertical-align: text-bottom;
-  -webkit-mask-image: url("../../images/menu.svg");
-  mask-image: url("../../images/menu.svg");
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  background-image: url("../../images/menu.svg");
+}
+.mobile-preview .header .gnb .menu_btn.close {
+  display: none;
 }
 .mobile-preview .header .gnb ul {
   position: absolute;
@@ -205,28 +200,29 @@ body {
   border-bottom: 1px solid #707070;
 }
 .mobile-preview .header .gnb.on {
+  position: relative;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.3215686275);
+  height: 100%;
 }
 .mobile-preview .header .gnb.on .menu_btn {
-  position: absolute;
-  top: -15px;
-  right: 135px;
-  width: 40px;
-  height: 30px;
-  border-radius: 10px 0 0 10px;
-  background-size: 80%;
-  background-color: #E9EEF6;
+  display: none;
 }
-.mobile-preview .header .gnb.on .menu_btn::before {
+.mobile-preview .header .gnb.on .menu_btn.close {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../../images/close.svg");
+  z-index: 1;
 }
 .mobile-preview .header .gnb.on ul {
   position: absolute;
-  top: -22px;
+  top: 0;
   right: -21px;
   display: flex;
   flex-direction: column;
@@ -245,52 +241,57 @@ body {
 .tablet-preview {
   max-width: 768px !important;
   margin: 0 auto;
+  /*---헤더---*/
+  /*---content---*/
 }
 .tablet-preview .wrap {
   padding-top: 52px;
 }
+.tablet-preview .header {
+  height: 70px;
+  min-height: 80px;
+}
+.tablet-preview .content .inner {
+  padding-top: 70px;
+}
 
-/*---헤더---*/
 /*---------------------------------------------
 	#테블릿(portrait)
 ---------------------------------------------*/
 .tablet-portrait-preview {
   max-width: 600px !important;
   margin: 0 auto;
+  /*---헤더---*/
+  /*---content---*/
 }
 .tablet-portrait-preview .wrap {
   padding-top: 52px;
 }
+.tablet-portrait-preview .header {
+  height: 64px;
+  min-height: 64px;
+}
+.tablet-portrait-preview .content .inner {
+  padding-top: 80px;
+}
 
-/*---헤더---*/
 /*---------------------------------------------
 	#desktop
 ---------------------------------------------*/
 .desktop-preview {
   max-width: 1200px !important;
   margin: 0 auto;
+  /*---헤더---*/
 }
 .desktop-preview .wrap {
   padding-top: 52px;
 }
+.desktop-preview .header {
+  height: 80px;
+  min-height: 80px;
+}
 
-/*---헤더---*/
-.header {
-  background-color: #FFFFFF;
-  padding: 0 20px;
-}
-.header .inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.header .logo {
-  display: inline-block;
-  padding: 10px 0;
-}
-.header .logo img {
-  width: 140px;
-}
-.header .gnb {
-  display: none;
+/*---content---*/
+.content .inner {
+  padding-top: 80px;
 }

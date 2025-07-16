@@ -13,6 +13,26 @@ body {
     background-color:$background01;
 }
 
+.header {
+    @include absolute($position:fixed, $right:0, $left:0);
+    background-color:$white;
+    z-index:1;
+    .inner {
+        height:100%;
+        padding:0 20px;
+    }
+    .logo {
+        display:inline-block;
+        padding:10px 0;
+        img {
+            height:24px;
+        }
+    }
+    .gnb {
+        display:none;
+    }
+}
+
 .content {
     .inner {
         padding:45px 20px 20px;
@@ -53,36 +73,18 @@ body {
     }
     /*---헤더---*/
     .header {
-        @include absolute($position:fixed, $right:0, $left:0);
-        height:45px;
-        background-color:$white;
-        padding:0 20px;
-        border-radius:20px 20px 0 0;
-        z-index:1;
-        .inner {
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-        }
-        .logo {
-            display:inline-block;
-            padding:10px 0;
-            img {
-            width:140px;
-            }
-        }
+        height:60px;
+        min-height:60px;
         .gnb {
             display:inline-block;
             z-index:1;
             .menu_btn {
+                display:block;
+                @include wh (30px, 30px);
                 font-size:0;
-                &::before {
-                    content:"";
-                    display:block;
-                    @include wh (20px,20px);
-                    @include mask ($color22);
-                    -webkit-mask-image:url("../../images/menu.svg");
-                    mask-image:url("../../images/menu.svg");
+                background-image:url("../../images/menu.svg");
+                &.close {
+                    display:none;
                 }
             }
             ul {
@@ -100,21 +102,20 @@ body {
                 border-bottom:1px solid $border02;
             }
             &.on {
-                width:100%;
-                background-color:#00000052;
+                position:relative;
+                @include wh (100%,100%);
                 .menu_btn {
-                    @include absolute ($position:absolute, $top:-15px, $right:135px);
-                    @include wh (40px,30px);
-                    border-radius:10px 0 0 10px;
-                    background-size:80%;
-                    background-color:$background02;
-                    &::before {
-                    @include absolute ($position:absolute, $top:50%, $left:50%);
-                    transform:translate(-50%,-50%);
+                    display:none;
+                    &.close {
+                        @include absolute ($position:absolute, $top:0, $right:0);
+                        display:block;
+                        @include icon (30px, 30px);
+                        background-image:url("../../images/close.svg");
+                        z-index:1;
                     }
                 }
                 ul {
-                    @include absolute ($position:absolute, $top:-22px, $right:-21px);
+                    @include absolute ($position:absolute, $top:0, $right:-21px);
                     display:flex;
                     flex-direction:column;
                     gap:15px;
@@ -139,9 +140,21 @@ body {
     .wrap {
         padding-top:52px;
     }
+    /*---헤더---*/
+    .header {
+        height:70px;
+        min-height:80px;
+    }
+
+    /*---content---*/
+    .content {
+        .inner {
+            padding-top:70px;
+        }
+    }
 }
 
-/*---헤더---*/
+
 
 /*---------------------------------------------
 	#테블릿(portrait)
@@ -152,9 +165,21 @@ body {
     .wrap {
         padding-top:52px;
     }
+    /*---헤더---*/
+    .header {
+        height:64px;
+        min-height:64px;
+    }
+
+    /*---content---*/
+    .content {
+        .inner {
+            padding-top:80px;
+        }
+    }
 }
 
-/*---헤더---*/
+
 
 /*---------------------------------------------
 	#desktop
@@ -165,24 +190,16 @@ body {
     .wrap {
         padding-top:52px;
     }
+    /*---헤더---*/
+    .header {
+        height:80px;
+        min-height:80px;
+    }
 }
-/*---헤더---*/
-.header {
-    background-color:$white;
-    padding:0 20px;
+
+/*---content---*/
+.content {
     .inner {
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-    }
-    .logo {
-        display:inline-block;
-        padding:10px 0;
-        img {
-        width:140px;
-        }
-    }
-    .gnb {
-        display:none;
+        padding-top:80px;
     }
 }
