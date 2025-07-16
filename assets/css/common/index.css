@@ -7,9 +7,6 @@
 /* 공통 */
 @import url("../common/reset.css");
 
-/* mixin, placeholder, 변수 */
-@import url("../partial/_variable.css");
-
 /* font-face */
 @font-face {
     font-family: 'S-CoreDream';

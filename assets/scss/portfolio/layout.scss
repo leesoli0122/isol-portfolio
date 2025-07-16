@@ -78,8 +78,8 @@ body {
                     display:block;
                     @include wh (20px,20px);
                     @include mask ($color22);
-                    -webkit-mask-image:url("/assets/images/menu.svg");
-                    mask-image:url("/assets/images/menu.svg");
+                    -webkit-mask-image:url("../../assets/images/menu.svg");
+                    mask-image:url("../../images/menu.svg");
                 }
             }
             ul {

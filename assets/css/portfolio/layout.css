@@ -182,8 +182,8 @@ body {
   mask-position: center;
   background-color: #222222;
   vertical-align: text-bottom;
-  -webkit-mask-image: url("/assets/images/menu.svg");
-  mask-image: url("/assets/images/menu.svg");
+  -webkit-mask-image: url("../../assets/images/menu.svg");
+  mask-image: url("../../images/menu.svg");
 }
 .mobile-preview .header .gnb ul {
   position: absolute;
