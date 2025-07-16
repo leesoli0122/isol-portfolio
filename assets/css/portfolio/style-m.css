@@ -98,6 +98,7 @@
     height: 45px;
     background-color: #FFFFFF;
     padding: 0 20px;
+    z-index: 1;
   }
   .main-container .header .inner {
     display: flex;
