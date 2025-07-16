@@ -11,6 +11,74 @@
         .wrap {
             padding-top:20px;
         }
+        /*---헤더---*/
+        .header {
+            @include absolute($position:fixed, $right:0, $left:0);
+            height:45px;
+            background-color:$white;
+            padding:0 20px;
+            .inner {
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+            }
+            .logo {
+                display:inline-block;
+                padding:10px 0;
+                img {
+                width:140px;
+                }
+            }
+            .gnb {
+                display:inline-block;
+                .menu_btn {
+                    font-size:0;
+                    &::before {
+                        content:"";
+                        display:block;
+                        @include wh (20px,20px);
+                        @include mask ($color22);
+                        -webkit-mask-image:url("/assets/images/menu.svg");
+                        mask-image:url("/assets/images/menu.svg");
+                    }
+                }
+                ul {
+                    @include absolute ($position:absolute, $top:0, $right:-270px);
+                    display:none;
+                    width:160px;
+                    padding:20px;
+                    border-radius:10px 0 0 10px;
+                    background-color:$background02;
+                    z-index:1;
+                    }
+                    li {
+                    width:100%;
+                    padding-bottom:5px;
+                    border-bottom:1px solid $border02;
+                    }
+                    &.on {
+                    width:100%;
+                    background-color:#00000052;
+                    .menu_btn {
+                        @include absolute ($position:absolute, $top:-15px, $right:135px);
+                        @include wh (40px,30px);
+                        border-radius:10px 0 0 10px;
+                        background-size:80%;
+                        background-color:$background02;
+                        &::before {
+                        @include absolute ($position:absolute, $top:50%, $left:50%);
+                        transform:translate(-50%,-50%);
+                        }
+                    }
+                    ul {
+                        @include absolute ($position:absolute, $top:-22px, $right:-21px);
+                        display:flex;
+                        flex-direction:column;
+                        gap:15px;
+                    }
+                }
+            }
+        }
         /* introduce */
         .introduce_wrap {
             .tex_wrap {

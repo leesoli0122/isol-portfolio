@@ -129,6 +129,7 @@ body {
   margin: 150px auto 0;
   border: 1px solid #707070;
   border-radius: 20px;
+  /*---헤더---*/
 }
 .mobile-preview::before {
   content: "";
@@ -142,9 +143,7 @@ body {
   border-radius: 20px 20px 0 0;
   background-color: rgba(0, 0, 0, 0.1411764706);
 }
-
-/*---헤더---*/
-.header {
+.mobile-preview .header {
   position: fixed;
   left: 0;
   right: 0;
@@ -152,25 +151,25 @@ body {
   background-color: #FFFFFF;
   padding: 0 20px;
 }
-.header .inner {
+.mobile-preview .header .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.header .logo {
+.mobile-preview .header .logo {
   display: inline-block;
   padding: 10px 0;
 }
-.header .logo img {
+.mobile-preview .header .logo img {
   width: 140px;
 }
-.header .gnb {
+.mobile-preview .header .gnb {
   display: inline-block;
 }
-.header .gnb .menu_btn {
+.mobile-preview .header .gnb .menu_btn {
   font-size: 0;
 }
-.header .gnb .menu_btn::before {
+.mobile-preview .header .gnb .menu_btn::before {
   content: "";
   display: block;
   width: 20px;
@@ -186,7 +185,7 @@ body {
   -webkit-mask-image: url("/assets/images/menu.svg");
   mask-image: url("/assets/images/menu.svg");
 }
-.header .gnb ul {
+.mobile-preview .header .gnb ul {
   position: absolute;
   top: 0;
   right: -270px;
@@ -197,16 +196,16 @@ body {
   background-color: #E9EEF6;
   z-index: 1;
 }
-.header .gnb li {
+.mobile-preview .header .gnb li {
   width: 100%;
   padding-bottom: 5px;
   border-bottom: 1px solid #707070;
 }
-.header .gnb.on {
+.mobile-preview .header .gnb.on {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3215686275);
 }
-.header .gnb.on .menu_btn {
+.mobile-preview .header .gnb.on .menu_btn {
   position: absolute;
   top: -15px;
   right: 135px;
@@ -216,13 +215,13 @@ body {
   background-size: 80%;
   background-color: #E9EEF6;
 }
-.header .gnb.on .menu_btn::before {
+.mobile-preview .header .gnb.on .menu_btn::before {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.header .gnb.on ul {
+.mobile-preview .header .gnb.on ul {
   position: absolute;
   top: -22px;
   right: -21px;

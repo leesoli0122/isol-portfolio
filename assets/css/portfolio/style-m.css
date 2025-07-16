@@ -85,10 +85,97 @@
 @media (max-width: 767px) {
   /*---content---*/
   .main-container {
+    /*---헤더---*/
     /* introduce */
   }
   .main-container .wrap {
     padding-top: 20px;
+  }
+  .main-container .header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 45px;
+    background-color: #FFFFFF;
+    padding: 0 20px;
+  }
+  .main-container .header .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .main-container .header .logo {
+    display: inline-block;
+    padding: 10px 0;
+  }
+  .main-container .header .logo img {
+    width: 140px;
+  }
+  .main-container .header .gnb {
+    display: inline-block;
+  }
+  .main-container .header .gnb .menu_btn {
+    font-size: 0;
+  }
+  .main-container .header .gnb .menu_btn::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-position: center;
+    mask-position: center;
+    background-color: #222222;
+    vertical-align: text-bottom;
+    -webkit-mask-image: url("/assets/images/menu.svg");
+    mask-image: url("/assets/images/menu.svg");
+  }
+  .main-container .header .gnb ul {
+    position: absolute;
+    top: 0;
+    right: -270px;
+    display: none;
+    width: 160px;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    background-color: #E9EEF6;
+    z-index: 1;
+  }
+  .main-container .header .gnb li {
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #707070;
+  }
+  .main-container .header .gnb.on {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3215686275);
+  }
+  .main-container .header .gnb.on .menu_btn {
+    position: absolute;
+    top: -15px;
+    right: 135px;
+    width: 40px;
+    height: 30px;
+    border-radius: 10px 0 0 10px;
+    background-size: 80%;
+    background-color: #E9EEF6;
+  }
+  .main-container .header .gnb.on .menu_btn::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .main-container .header .gnb.on ul {
+    position: absolute;
+    top: -22px;
+    right: -21px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
   .main-container .introduce_wrap .tex_wrap {
     flex-direction: column;

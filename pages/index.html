@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PORTFOLIO</title>
     <!-- css -->
-    <link rel="stylesheet" href="assets/css/common/index.css">
+    <link rel="stylesheet" href="../assets/css/common/index.css">
     <!-- lib -->
-    <script type="text/javascript" src="assets/js/lib/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="assets/js/lib/jquery-ui-1.12.1.js"></script>
-    <script type="text/javascript" src="assets/js/lib/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="../assets/js/lib/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../assets/js/lib/jquery-ui-1.12.1.js"></script>
+    <script type="text/javascript" src="../assets/js/lib/swiper-bundle.min.js"></script>
     <!-- ui -->
-    <script type="text/javascript" src="assets/js/responsive.js"></script>
+    <script type="text/javascript" src="../assets/js/responsive.js"></script>
 </head>
 <body>
     <!-- S: skipnavi -->
     <div id="skipnavi">
         <script>
             $(document).ready(function(){
-                $("#skipnavi").load("/INCLUDE/inc_skipnavi.html");
+                $("#skipnavi").load("../include/inc_skipnavi.html");
             });
         </script>
     </div>
@@ -39,7 +39,7 @@
             <div id="header" class="header">
                 <script>
                     $(document).ready(function(){
-                        $("#header").load("../INCLUDE/inc_header.html", function(response, status, xhr) {
+                        $("#header").load("../include/inc_header.html", function(response, status, xhr) {
                             if (status == "error") {
                                 console.log("헤더 로드 실패: " + xhr.status + " " + xhr.statusText);
                                 // 대체 콘텐츠 표시
