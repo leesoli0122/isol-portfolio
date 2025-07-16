@@ -89,7 +89,7 @@
     /* introduce */
   }
   .main-container .wrap {
-    padding-top: 20px;
+    padding-top: 0;
   }
   .main-container .header {
     position: fixed;
