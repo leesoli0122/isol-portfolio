@@ -58,6 +58,7 @@ body {
         background-color:$white;
         padding:0 20px;
         border-radius:20px 20px 0 0;
+        z-index:1;
         .inner {
             display:flex;
             align-items:center;
@@ -72,6 +73,7 @@ body {
         }
         .gnb {
             display:inline-block;
+            z-index:1;
             .menu_btn {
                 font-size:0;
                 &::before {
@@ -91,13 +93,13 @@ body {
                 border-radius:10px 0 0 10px;
                 background-color:$background02;
                 z-index:1;
-                }
-                li {
+            }
+            li {
                 width:100%;
                 padding-bottom:5px;
                 border-bottom:1px solid $border02;
-                }
-                &.on {
+            }
+            &.on {
                 width:100%;
                 background-color:#00000052;
                 .menu_btn {
@@ -116,6 +118,12 @@ body {
                     display:flex;
                     flex-direction:column;
                     gap:15px;
+                    li:hover {
+                        a {
+                            color:$primary;
+                        }
+                        border-bottom:2px solid $primary;
+                    }
                 }
             }
         }

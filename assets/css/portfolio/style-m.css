@@ -140,7 +140,7 @@
     display: none;
     width: 160px;
     padding: 20px;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 20px 0 10px;
     background-color: #E9EEF6;
     z-index: 1;
   }

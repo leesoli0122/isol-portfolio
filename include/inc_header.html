@@ -13,20 +13,3 @@
         </ul>
     </div>
 </div>
-
-<script>
-    $(function () {
-        $('.menu_btn').on('click', function () {
-            const $gnb = $('.gnb');
-            const isOpen = $gnb.hasClass('on');
-
-            if (isOpen) {
-                $gnb.removeClass('on');
-                $(this).attr('title', '메뉴 닫힘');
-            } else {
-                $gnb.addClass('on');
-                $(this).attr('title', '메뉴 열림');
-            }
-        });
-    });
-</script>

@@ -6,7 +6,7 @@
     <title>PORTFOLIO</title>
     <!-- css -->
     <link rel="stylesheet" href="../assets/css/common/index.css">
-    
+
     <!-- lib -->
     <script type="text/javascript" src="../assets/js/lib/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../assets/js/lib/jquery-ui-1.12.1.js"></script>
@@ -53,13 +53,20 @@
             <div id="header" class="header">
                 <script>
                     $(document).ready(function(){
-                        $("#header").load("../include/inc_header.html", function(response, status, xhr) {
-                            if (status == "error") {
-                                console.log("헤더 로드 실패: " + xhr.status + " " + xhr.statusText);
-                                // 대체 콘텐츠 표시
-                                $("#header").html("<p>헤더를 불러올 수 없습니다.</p>");
-                            }
-                        });
+                        $("#header").load("../include/inc_header.html");
+                    });
+                    // 이벤트 위임 사용 - 동적으로 추가된 요소에도 작동
+                    $(document).on('click', '.menu_btn', function () {
+                        const $gnb = $('.gnb');
+                        const isOpen = $gnb.hasClass('on');
+
+                        if (isOpen) {
+                            $gnb.removeClass('on');
+                            $(this).attr('title', '메뉴 닫힘');
+                        } else {
+                            $gnb.addClass('on');
+                            $(this).attr('title', '메뉴 열림');
+                        }
                     });
                 </script>
             </div>

@@ -151,6 +151,7 @@ body {
   background-color: #FFFFFF;
   padding: 0 20px;
   border-radius: 20px 20px 0 0;
+  z-index: 1;
 }
 .mobile-preview .header .inner {
   display: flex;
@@ -166,6 +167,7 @@ body {
 }
 .mobile-preview .header .gnb {
   display: inline-block;
+  z-index: 1;
 }
 .mobile-preview .header .gnb .menu_btn {
   font-size: 0;
@@ -229,6 +231,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+.mobile-preview .header .gnb.on ul li:hover {
+  border-bottom: 2px solid #1A73E8;
+}
+.mobile-preview .header .gnb.on ul li:hover a {
+  color: #1A73E8;
 }
 
 /*---------------------------------------------
