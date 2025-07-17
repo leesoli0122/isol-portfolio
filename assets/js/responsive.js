@@ -36,6 +36,7 @@ function setDevice(device, clickedButton) {
 
     if (!container) {
         console.error('mainContainer 요소를 찾을 수 없습니다.');
+        return;
     }
 
     // 부드러운 전환 위해 살짝 scale down
@@ -122,13 +123,24 @@ function initializeDeviceControl() {
     showResponsiveInfo();
     togglePreviewControls();
 
-    // 실제 모바일/태블릿 기기에서는 모든 preview 클래스 제거
+    const container = document.getElementById('mainContainer');
+    if (!container) return;
+
     if (!isDesktopDevice()) {
-        const container = document.getElementById('mainContainer');
-        if (container) {
-            container.className = 'main-container';
-            console.log('실제 모바일/태블릿 기기 감지 - Preview 클래스 제거됨');
+        // 실제 모바일/태블릿 기기에서는 모든 preview 클래스 제거
+        container.className = 'main-container desktop-preview';
+
+        // 데스크탑 버튼을 active 상태로 설정
+        const desktopButton = document.querySelector('.preview-controls button[data-device="desktop"]') || document.querySelector('.preview-controls button:last-child');
+        if (desktopButton) {
+            desktopButton.classList.add('active');
         }
+        currentDevice = 'desktop';
+        console.log('데스크탑 기기 감지 - desktop-preview 클래스 추가됨');
+    } else {
+        // 실제 모바일/태블릿 기기에서는 모든 preview 클래스 제거
+        container.className = 'main-container';
+        console.log('실제 모바일/태블릿 기기 감지 - Preview 클래스 제거됨');
     }
 }
 
