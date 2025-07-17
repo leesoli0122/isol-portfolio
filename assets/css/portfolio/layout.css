@@ -364,12 +364,8 @@ body {
 ---------------------------------------------*/
 .mobile-preview {
   max-width: 375px !important;
-  margin: 0 auto;
   box-shadow: 0 0 6px;
   /*---헤더---*/
-}
-.mobile-preview .wrap {
-  padding-top: 52px;
 }
 .mobile-preview .header {
   height: 60px;
@@ -385,13 +381,9 @@ body {
 ---------------------------------------------*/
 .tablet-preview {
   max-width: 768px !important;
-  margin: 0 auto;
   box-shadow: 0 0 6px;
   /*---헤더---*/
   /*---content---*/
-}
-.tablet-preview .wrap {
-  padding-top: 52px;
 }
 .tablet-preview .header {
   height: 70px;
@@ -406,13 +398,9 @@ body {
 ---------------------------------------------*/
 .tablet-portrait-preview {
   max-width: 600px !important;
-  margin: 0 auto;
   box-shadow: 0 0 6px;
   /*---헤더---*/
   /*---content---*/
-}
-.tablet-portrait-preview .wrap {
-  padding-top: 52px;
 }
 .tablet-portrait-preview .header {
   height: 64px;
@@ -424,14 +412,9 @@ body {
 
 @media (min-width: 768px) {
   .tablet-preview {
-    max-width: 768px !important;
-    margin: 0 auto;
     box-shadow: 0 0 6px;
     /*---헤더---*/
     /*---content---*/
-  }
-  .tablet-preview .wrap {
-    padding-top: 52px;
   }
   .tablet-preview .header {
     height: 70px;
@@ -441,14 +424,9 @@ body {
     padding-top: 70px;
   }
   .tablet-portrait-preview {
-    max-width: 600px !important;
-    margin: 0 auto;
     box-shadow: 0 0 6px;
     /*---헤더---*/
     /*---content---*/
-  }
-  .tablet-portrait-preview .wrap {
-    padding-top: 52px;
   }
   .tablet-portrait-preview .header {
     height: 64px;
@@ -462,12 +440,8 @@ body {
 	#desktop-preview
 ---------------------------------------------*/
 .desktop-preview {
-  margin: 0 auto;
   /*---헤더---*/
   /*---content---*/
-}
-.desktop-preview .wrap {
-  padding-top: 52px;
 }
 .desktop-preview .header {
   height: 80px;
@@ -485,12 +459,8 @@ body {
 
 @media (min-width: 1025px) {
   .desktop-preview {
-    margin: 0 auto;
     /*---헤더---*/
     /*---content---*/
-  }
-  .desktop-preview .wrap {
-    padding-top: 52px;
   }
   .desktop-preview .header {
     height: 80px;

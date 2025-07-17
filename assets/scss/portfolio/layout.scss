@@ -276,11 +276,7 @@ body {
 ---------------------------------------------*/
 .mobile-preview {
     max-width: 375px !important;
-    margin:0 auto;
     box-shadow:0 0 6px;
-    .wrap {
-        padding-top:52px;
-    }
     /*---헤더---*/
     .header {
         height:60px;
@@ -302,11 +298,7 @@ body {
 ---------------------------------------------*/
 .tablet-preview {
     max-width: 768px !important;
-    margin: 0 auto;
     box-shadow:0 0 6px;
-    .wrap {
-        padding-top:52px;
-    }
     /*---헤더---*/
     .header {
         height:70px;
@@ -326,11 +318,7 @@ body {
 ---------------------------------------------*/
 .tablet-portrait-preview {
     max-width: 600px !important;
-    margin: 0 auto;
     box-shadow:0 0 6px;
-    .wrap {
-        padding-top:52px;
-    }
     /*---헤더---*/
     .header {
         height:64px;
@@ -346,12 +334,7 @@ body {
 }
 @media (min-width: 768px) {
     .tablet-preview {
-        max-width: 768px !important;
-        margin: 0 auto;
         box-shadow:0 0 6px;
-        .wrap {
-            padding-top:52px;
-        }
         /*---헤더---*/
         .header {
             height:70px;
@@ -367,12 +350,7 @@ body {
     }
 
     .tablet-portrait-preview {
-        max-width: 600px !important;
-        margin: 0 auto;
         box-shadow:0 0 6px;
-        .wrap {
-            padding-top:52px;
-        }
         /*---헤더---*/
         .header {
             height:64px;
@@ -392,10 +370,6 @@ body {
 	#desktop-preview
 ---------------------------------------------*/
 .desktop-preview {
-    margin: 0 auto;
-    .wrap {
-        padding-top:52px;
-    }
     /*---헤더---*/
     .header {
         height:80px;
@@ -422,10 +396,6 @@ body {
 }
 @media (min-width: 1025px) {
     .desktop-preview {
-        margin: 0 auto;
-        .wrap {
-            padding-top:52px;
-        }
         /*---헤더---*/
         .header {
             height:80px;

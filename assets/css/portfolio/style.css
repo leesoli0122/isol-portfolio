@@ -109,10 +109,6 @@
 
 /*---프리뷰 컨트롤---*/
 .preview-controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
   display: flex;
   gap: 10px;
