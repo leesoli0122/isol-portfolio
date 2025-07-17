@@ -120,7 +120,6 @@ body {
         }
     }
 }
-
 // sidebar
 .sidebar {
     @include absolute($position:fixed, $top:80px, $left:-280px);
@@ -232,7 +231,6 @@ body {
         }
     }
 }
-
 /* 오버레이 */
 .sidebar-overlay {
     position: fixed;
@@ -250,7 +248,6 @@ body {
         visibility: visible;
     }
 }
-
 .content {
     height:calc(100vh + 55px);
     margin-left:0;
@@ -258,7 +255,7 @@ body {
     .inner {
         height:100%;
         min-height:calc(100vh + 55px);
-        padding:20px;
+        padding:60px 20px 20px;
         overflow-y:scroll;
     }
     .title {
@@ -324,8 +321,6 @@ body {
     }
 }
 
-
-
 /*---------------------------------------------
 	#tablet-portrait-preview
 ---------------------------------------------*/
@@ -349,8 +344,49 @@ body {
         }
     }
 }
+@media (min-width: 768px) {
+    .tablet-preview {
+        max-width: 768px !important;
+        margin: 0 auto;
+        box-shadow:0 0 6px;
+        .wrap {
+            padding-top:52px;
+        }
+        /*---헤더---*/
+        .header {
+            height:70px;
+            min-height:80px;
+        }
+    
+        /*---content---*/
+        .content {
+            .inner {
+                padding-top:70px;
+            }
+        }
+    }
 
-
+    .tablet-portrait-preview {
+        max-width: 600px !important;
+        margin: 0 auto;
+        box-shadow:0 0 6px;
+        .wrap {
+            padding-top:52px;
+        }
+        /*---헤더---*/
+        .header {
+            height:64px;
+            min-height:64px;
+        }
+    
+        /*---content---*/
+        .content {
+            .inner {
+                padding-top:80px;
+            }
+        }
+    }
+}
 
 /*---------------------------------------------
 	#desktop-preview
@@ -370,11 +406,48 @@ body {
             }
         }
     }
+    .sidebar-open {
+        .content {
+            .inner {
+                padding-left:300px;
+            }
+        }
+    }
+    /*---content---*/
+    .content {
+        .inner {
+            padding-top:80px;
+        }
+    }
 }
-
-/*---content---*/
-.content {
-    .inner {
-        padding-top:80px;
+@media (min-width: 1025px) {
+    .desktop-preview {
+        margin: 0 auto;
+        .wrap {
+            padding-top:52px;
+        }
+        /*---헤더---*/
+        .header {
+            height:80px;
+            min-height:80px;
+            .logo {
+                img {
+                    height:30px;
+                }
+            }
+        }
+        .sidebar-open {
+            .content {
+                .inner {
+                    padding-left:300px;
+                }
+            }
+        }
+        /*---content---*/
+        .content {
+            .inner {
+                padding-top:80px;
+            }
+        }
     }
 }

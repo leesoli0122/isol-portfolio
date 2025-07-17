@@ -127,81 +127,20 @@
 ---------------------------------------------*/
 
 /*---------------------------------------------
-	#테블릿
+	#tablet-preview
 ---------------------------------------------*/
 /*---content---*/
 .tablet-preview {
-    .tex_wrap {
-        .profile {
-            @include wh (180px,180px);
-            img {
-                @include wh (100%,100%);
-            }
-        }
-    }
     .text_list_wrap {
-        margin-bottom:60px;
         &.induce {
             .tex_wrap {
-                display:flex;
-                align-items:center;
+                flex-direction: row;
                 gap:20px;
-            }
-        }
-    }
-    .tex_wrap {
-        .profile_box {
-            display:flex;
-            align-items:center;
-            flex-direction: column;
-            padding:20px;
-            border-radius:15px;
-            background-color:$white;
-            box-shadow:1px 1px 3px 0px #9da5b3;
-        }
-        .profile {
-            @include wh (200px,200px);
-            border-radius:50%;
-            background-color:$background02;
-            overflow:hidden;
-            img {
-                @include wh (100%, 100%);
-                object-fit:cover;
-            }
-        }
-        .profile_tit {
-            padding-top:15px;
-            margin-top:20px;
-            border-top:2px solid $border02;
-            text-align:center;
-            li {
-                padding-bottom:10px;
-                @include font-body();
-                &:first-child {
-                    font-size: $font14;
-                    color: $color75;
-                    font-weight: $font-w-m;
-                }
-                &:last-child {
-                    padding-bottom: 0;
-                    font-size: $font20;
-                    font-weight: $font-w-b;
-                    color: $color22;
-                }
-            }
-        }
-        .txt_list {
-            height:-webkit-fill-available;
-            padding:20px;
-            border-radius:15px;
-            background-color:$background02;
-            box-shadow:1px 1px 3px 0px #9da5b3;
-            li {
-                margin-bottom: 20px;
-                line-height:1.5;
-                font-size:$font15;
-                &:last-child {
-                    margin-bottom: 0;
+                .profile {
+                    @include wh (180px,180px);
+                    img {
+                        @include wh (100%,100%);
+                    }
                 }
             }
         }
@@ -209,19 +148,41 @@
 }
 
 /*---------------------------------------------
-	#테블릿(portrait)
+	#tablet-portrait-preview
 ---------------------------------------------*/
 /*---content---*/
 .tablet-portrait-preview {
-    .tex_wrap {
-        .profile {
-            @include wh (150px,150px);
-            img {
-                @include wh (100%,100%);
+    .text_list_wrap {
+        &.induce {
+            .tex_wrap {
+                .profile {
+                    @include wh (150px,150px);
+                    img {
+                        @include wh (100%,100%);
+                    }
+                }
             }
         }
     }
 }
 /*---------------------------------------------
-	#desktop
+	#desktop-preview
 ---------------------------------------------*/
+/*---content---*/
+.desktop-preview {
+    .text_list_wrap {
+        margin-bottom:60px;
+        &.induce {
+            .tex_wrap {
+                flex-direction: row;
+                gap:20px;
+                .profile {
+                    @include wh (180px,180px);
+                    img {
+                        @include wh (100%,100%);
+                    }
+                }
+            }
+        }
+    }
+}

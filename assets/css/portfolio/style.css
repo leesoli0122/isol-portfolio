@@ -203,106 +203,51 @@
 	#모바일
 ---------------------------------------------*/
 /*---------------------------------------------
-	#테블릿
+	#tablet-preview
 ---------------------------------------------*/
 /*---content---*/
-.tablet-preview .tex_wrap .profile {
+.tablet-preview .text_list_wrap.induce .tex_wrap {
+  flex-direction: row;
+  gap: 20px;
+}
+.tablet-preview .text_list_wrap.induce .tex_wrap .profile {
   width: 180px;
   height: 180px;
 }
-.tablet-preview .tex_wrap .profile img {
+.tablet-preview .text_list_wrap.induce .tex_wrap .profile img {
   width: 100%;
   height: 100%;
-}
-.tablet-preview .text_list_wrap {
-  margin-bottom: 60px;
-}
-.tablet-preview .text_list_wrap.induce .tex_wrap {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.tablet-preview .tex_wrap .profile_box {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 15px;
-  background-color: #FFFFFF;
-  box-shadow: 1px 1px 3px 0px #9da5b3;
-}
-.tablet-preview .tex_wrap .profile {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: #E9EEF6;
-  overflow: hidden;
-}
-.tablet-preview .tex_wrap .profile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.tablet-preview .tex_wrap .profile_tit {
-  padding-top: 15px;
-  margin-top: 20px;
-  border-top: 2px solid #707070;
-  text-align: center;
-}
-.tablet-preview .tex_wrap .profile_tit li {
-  padding-bottom: 10px;
-  font-size: 0.875rem;
-}
-@media (min-width: 768px) {
-  .tablet-preview .tex_wrap .profile_tit li {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 1025px) {
-  .tablet-preview .tex_wrap .profile_tit li {
-    font-size: 1rem;
-  }
-}
-.tablet-preview .tex_wrap .profile_tit li:first-child {
-  font-size: 0.875rem;
-  color: #757575;
-  font-weight: 500;
-}
-.tablet-preview .tex_wrap .profile_tit li:last-child {
-  padding-bottom: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #222222;
-}
-.tablet-preview .tex_wrap .txt_list {
-  height: -webkit-fill-available;
-  padding: 20px;
-  border-radius: 15px;
-  background-color: #E9EEF6;
-  box-shadow: 1px 1px 3px 0px #9da5b3;
-}
-.tablet-preview .tex_wrap .txt_list li {
-  margin-bottom: 20px;
-  line-height: 1.5;
-  font-size: 0.9375rem;
-}
-.tablet-preview .tex_wrap .txt_list li:last-child {
-  margin-bottom: 0;
 }
 
 /*---------------------------------------------
-	#테블릿(portrait)
+	#tablet-portrait-preview
 ---------------------------------------------*/
 /*---content---*/
-.tablet-portrait-preview .tex_wrap .profile {
+.tablet-portrait-preview .text_list_wrap.induce .tex_wrap .profile {
   width: 150px;
   height: 150px;
 }
-.tablet-portrait-preview .tex_wrap .profile img {
+.tablet-portrait-preview .text_list_wrap.induce .tex_wrap .profile img {
   width: 100%;
   height: 100%;
 }
 
 /*---------------------------------------------
-	#desktop
+	#desktop-preview
 ---------------------------------------------*/
+/*---content---*/
+.desktop-preview .text_list_wrap {
+  margin-bottom: 60px;
+}
+.desktop-preview .text_list_wrap.induce .tex_wrap {
+  flex-direction: row;
+  gap: 20px;
+}
+.desktop-preview .text_list_wrap.induce .tex_wrap .profile {
+  width: 180px;
+  height: 180px;
+}
+.desktop-preview .text_list_wrap.induce .tex_wrap .profile img {
+  width: 100%;
+  height: 100%;
+}
