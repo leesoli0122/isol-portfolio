@@ -4,6 +4,15 @@
 /*---------------------------------------------
 	#공통
 ---------------------------------------------*/
+
+html, body {
+    overflow: hidden !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 // layout
 body {
     background-color:$background01;
@@ -25,9 +34,14 @@ body {
     min-height:100vh;
     transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/*---------------------------------------------
+	#모바일 기준 - .mobile-preview 아님
+---------------------------------------------*/
 // header
 .header {
     @include absolute($position:fixed, $right:0, $left:0);
+    height:60px;
+    min-height:60px;
     border-bottom:1px solid $border02;
     backdrop-filter:blur(10px);
     background-color:$white;
@@ -36,22 +50,21 @@ body {
     .inner {
         display:flex;
         align-items:center;
-        max-width: 1200px;
         height:100%;
         margin:0 auto;
         padding:0 20px;
     }
     .logo {
         display:inline-block;
-        padding:10px 0;
+        padding-left:20px;
         img {
             height:24px;
         }
     }
     .hamburger {
         position: relative;
-        width: 40px;
-        height: 40px;
+        @include wh (40px,40px);
+        margin-bottom:4px;
         border: none;
         background: transparent;
         cursor: pointer;
@@ -90,19 +103,18 @@ body {
         &.active {
             span {
                 &:nth-child(1) {
-                    top:18px;
-                    transform: translateY(6px) rotate(45deg);
-                    background-color:$primary;
+                    top: 18px;
+                    transform: translateX(-50%) rotate(45deg);
+                    background-color: $primary;
                 }
                 &:nth-child(2) {
                     opacity: 0;
-                    transform: scale(0);
+                    transform: translateX(-50%) scale(0);
                 }
-                
                 &:nth-child(3) {
-                    top:18px;
-                    transform: translateY(-6px) rotate(-45deg);
-                    background-color:$primary;
+                    top: 18px;
+                    transform: translateX(-50%) rotate(-45deg);
+                    background-color: $primary;
                 }
             }
         }
@@ -112,8 +124,10 @@ body {
 // sidebar
 .sidebar {
     @include absolute($position:fixed, $top:80px, $left:-280px);
+    display:none;
     width: 280px;
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
+    height:100%;
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
     overflow-y: auto;
@@ -138,47 +152,51 @@ body {
             font-size: 14px;
             outline: none;
             transition: all 0.3s ease;
-        }/*->>>>여기까지 함*/
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+            &:focus {
+                background-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+    .gnb {
+        li {
+            margin-bottom:8px;
+            a {
+                position: relative;
+                display:block;
+                padding:12px 16px;
+                border-radius: 8px;
+                font-size:$font14;
+                color:$white;
+                transition: all 0.3s ease;
+                overflow: hidden;
+                &::before {
+                    content: '';
+                    @include absolute($position:absolute, $top:0, $left:-100%);
+                    @include wh (100%,100%);
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                    transition: left 0.5s ease;
+                }
+                &:hover {
+                    &::before {
+                        left:100%;
+                    }
+                }
+                &:hover, &.active {
+                    background-color: rgba(255, 255, 255, 0.15);
+                    transform: translateX(8px);
+                }
+            }
+        }
     }
 }
 .sidebar-open {
     .sidebar {
-        position:fixed;
-        left:0;
+        @include absolute( $top:60px, $left:0);
         display:block;
-        width: 280px;
-        height:calc(100vh - 80px);
-        background-color: $color22;
-        color: $white;
-        overflow-y:auto;
-        transition:transform 0.3s ease;
-        z-index: 99;
-        .inner {
-            padding: 30px 20px;
-        }
-        .search {
-            margin-bottom: 30px;
-            form {
-                position: relative;
-            }
-            input {
-                width: 100%;
-                padding: 12px 16px;
-                border: none;
-                border-radius: 6px;
-                background-color: rgba(255, 255, 255, 0.1);
-                color: $white;
-                font-size: $font14;
-                outline: none;
-                transition: background-color 0.3s ease;
-                &::placeholder {
-                    color: rgba(255, 255, 255, 0.7);
-                }
-                &:focus {
-                    background-color: rgba(255, 255, 255, 0.2);
-                }
-            }
-        }
         .gnb {
             li {
                 margin-bottom:8px;
@@ -213,18 +231,35 @@ body {
             }
         }
     }
-    .content {
-        .inner {
-            padding-left:300px;
-        }
+}
+
+/* 오버레이 */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    &.active {
+        opacity: 1;
+        visibility: visible;
     }
 }
+
 .content {
-    flex:1;
+    height:calc(100vh + 55px);
     margin-left:0;
     transition:margin-left 0.3s ease;
     .inner {
+        height:100%;
+        min-height:calc(100vh + 55px);
         padding:20px;
+        overflow-y:scroll;
     }
     .title {
         position: relative;
@@ -240,26 +275,19 @@ body {
 }
 
 /*---------------------------------------------
-	#모바일
+	#mobile-preview
 ---------------------------------------------*/
 .mobile-preview {
     max-width: 375px !important;
-    margin:150px auto 0;
-    border:1px solid $border02;
-    border-radius:20px;
-    &::before {
-        content:"";
-        @include absolute ($position:absolute, $top:0, $right:0, $left:0);
-        display:block;
-        @include wh (100%, 20px);
-        border-radius:20px 20px 0 0;
-        background-color:#00000024;
+    margin:0 auto;
+    box-shadow:0 0 6px;
+    .wrap {
+        padding-top:52px;
     }
     /*---헤더---*/
     .header {
         height:60px;
         min-height:60px;
-        border-radius:20px 20px 0 0;
     }
 }
 .sidebar-open {
@@ -273,11 +301,12 @@ body {
 }
 
 /*---------------------------------------------
-	#테블릿
+	#tablet-preview
 ---------------------------------------------*/
 .tablet-preview {
     max-width: 768px !important;
     margin: 0 auto;
+    box-shadow:0 0 6px;
     .wrap {
         padding-top:52px;
     }
@@ -298,11 +327,12 @@ body {
 
 
 /*---------------------------------------------
-	#테블릿(portrait)
+	#tablet-portrait-preview
 ---------------------------------------------*/
 .tablet-portrait-preview {
     max-width: 600px !important;
     margin: 0 auto;
+    box-shadow:0 0 6px;
     .wrap {
         padding-top:52px;
     }
@@ -323,7 +353,7 @@ body {
 
 
 /*---------------------------------------------
-	#desktop
+	#desktop-preview
 ---------------------------------------------*/
 .desktop-preview {
     margin: 0 auto;
@@ -334,6 +364,11 @@ body {
     .header {
         height:80px;
         min-height:80px;
+        .logo {
+            img {
+                height:30px;
+            }
+        }
     }
 }
 

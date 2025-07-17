@@ -39,7 +39,7 @@
     height:52px;
     padding:10px 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    background-color:#99999950;
+    background-color:#D2D2D2;
     @media (max-width: 767px) {
         display: none; // 모바일일 땐 숨김
     }
@@ -61,13 +61,18 @@
     }
 }
 
+/*---------------------------------------------
+	#모바일 기준 - .mobile-preview 아님
+---------------------------------------------*/
 /*---content---*/
-.introduce_wrap {
+.text_list_wrap {
     margin-bottom:60px;
-    .tex_wrap {
-        display:flex;
-        align-items:center;
-        gap:20px;
+    &.induce {
+        .tex_wrap {
+            display:flex;
+            align-items:center;
+            flex-direction: column;
+        }
     }
 }
 
@@ -75,101 +80,52 @@
     .profile_box {
         display:flex;
         align-items:center;
-        flex-direction: column;
-        padding:20px;
-        border-radius:15px;
+        width:100%;
+        padding:10px 20px;
+        margin-bottom:30px;
+        border-radius:12px;
         background-color:$white;
-        box-shadow:1px 1px 3px 0px #9da5b3;
+        box-shadow:0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .profile {
-        @include wh (200px,200px);
+        @include wh (80px,80px);
         border-radius:50%;
-        background-color:$background02;
-        overflow:hidden;
         img {
             @include wh (100%, 100%);
-            object-fit:cover;
         }
     }
     .profile_tit {
-        padding-top:15px;
-        margin-top:20px;
-        border-top:2px solid $border02;
-        text-align:center;
         li {
-            padding-bottom:10px;
-            @include font-body();
             &:first-child {
-                font-size: $font14;
-                color: $color75;
-                font-weight: $font-w-m;
+                margin-bottom: 5px;
+                font-size:$font14;
+                color:$color75;
             }
             &:last-child {
-                padding-bottom: 0;
-                font-size: $font20;
-                font-weight: $font-w-b;
-                color: $color22;
+                font-size:$font24;
+                font-weight: bold;
+                color:$color22;
             }
         }
     }
-    .txt_list {
-        height:-webkit-fill-available;
-        padding:20px;
-        border-radius:15px;
-        background-color:$background02;
-        box-shadow:1px 1px 3px 0px #9da5b3;
-        li {
-            margin-bottom: 20px;
-            line-height:1.5;
-            font-size:$font15;
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
+}
+
+.txt_list {
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+        color:$color45;
     }
 }
 
 /*---------------------------------------------
 	#모바일
 ---------------------------------------------*/
-/*---content---*/
-.mobile-preview {
-    .wrap {
-        padding-top:20px;
-    }
-    /* introduce */
-    .introduce_wrap {
-        .tex_wrap {
-            flex-direction:column;
-        }
-    }
-    .tex_wrap {
-        .profile_box {
-            flex-direction:row;
-            gap:20px;
-            width:100%;
-            padding:10px 20px;
-        }
-        .profile {
-            @include wh (100px,100px);
-            img {
-                @include wh (100%, 100%);
-            }
-        }
-        .profile_tit {
-            width:calc(100% - 100px);
-            padding-top:0;
-            margin-top:0;
-            border-top:0;
-            border-left:2px solid $border02;
-            li {
-                display:inline-block;
-                margin:0 10px;
-                font-weight:$font-w-b;
-            }
-        }
-    }
-}
+
 /*---------------------------------------------
 	#테블릿
 ---------------------------------------------*/
@@ -180,6 +136,73 @@
             @include wh (180px,180px);
             img {
                 @include wh (100%,100%);
+            }
+        }
+    }
+    .text_list_wrap {
+        margin-bottom:60px;
+        &.induce {
+            .tex_wrap {
+                display:flex;
+                align-items:center;
+                gap:20px;
+            }
+        }
+    }
+    .tex_wrap {
+        .profile_box {
+            display:flex;
+            align-items:center;
+            flex-direction: column;
+            padding:20px;
+            border-radius:15px;
+            background-color:$white;
+            box-shadow:1px 1px 3px 0px #9da5b3;
+        }
+        .profile {
+            @include wh (200px,200px);
+            border-radius:50%;
+            background-color:$background02;
+            overflow:hidden;
+            img {
+                @include wh (100%, 100%);
+                object-fit:cover;
+            }
+        }
+        .profile_tit {
+            padding-top:15px;
+            margin-top:20px;
+            border-top:2px solid $border02;
+            text-align:center;
+            li {
+                padding-bottom:10px;
+                @include font-body();
+                &:first-child {
+                    font-size: $font14;
+                    color: $color75;
+                    font-weight: $font-w-m;
+                }
+                &:last-child {
+                    padding-bottom: 0;
+                    font-size: $font20;
+                    font-weight: $font-w-b;
+                    color: $color22;
+                }
+            }
+        }
+        .txt_list {
+            height:-webkit-fill-available;
+            padding:20px;
+            border-radius:15px;
+            background-color:$background02;
+            box-shadow:1px 1px 3px 0px #9da5b3;
+            li {
+                margin-bottom: 20px;
+                line-height:1.5;
+                font-size:$font15;
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
         }
     }

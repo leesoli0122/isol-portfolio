@@ -82,6 +82,15 @@
 /*---------------------------------------------
 	#공통
 ---------------------------------------------*/
+html, body {
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 body {
   background-color: #F6F8FC;
   overflow-x: hidden;
@@ -103,10 +112,15 @@ body {
   transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/*---------------------------------------------
+	#모바일 기준 - .mobile-preview 아님
+---------------------------------------------*/
 .header {
   position: fixed;
   left: 0;
   right: 0;
+  height: 60px;
+  min-height: 60px;
   border-bottom: 1px solid #707070;
   backdrop-filter: blur(10px);
   background-color: #FFFFFF;
@@ -116,14 +130,13 @@ body {
 .header .inner {
   display: flex;
   align-items: center;
-  max-width: 1200px;
   height: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
 .header .logo {
   display: inline-block;
-  padding: 10px 0;
+  padding-left: 20px;
 }
 .header .logo img {
   height: 24px;
@@ -132,6 +145,7 @@ body {
   position: relative;
   width: 40px;
   height: 40px;
+  margin-bottom: 4px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -171,16 +185,16 @@ body {
 }
 .header .hamburger.active span:nth-child(1) {
   top: 18px;
-  transform: translateY(6px) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
   background-color: #1A73E8;
 }
 .header .hamburger.active span:nth-child(2) {
   opacity: 0;
-  transform: scale(0);
+  transform: translateX(-50%) scale(0);
 }
 .header .hamburger.active span:nth-child(3) {
   top: 18px;
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateX(-50%) rotate(-45deg);
   background-color: #1A73E8;
 }
 
@@ -188,8 +202,10 @@ body {
   position: fixed;
   top: 80px;
   left: -280px;
+  display: none;
   width: 280px;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
+  height: 100%;
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
   overflow-y: auto;
@@ -205,7 +221,6 @@ body {
 }
 .sidebar .search {
   margin-bottom: 30px;
-  /*->>>>여기까지 함*/
 }
 .sidebar .search input {
   width: 100%;
@@ -218,45 +233,49 @@ body {
   outline: none;
   transition: all 0.3s ease;
 }
-
-.sidebar-open .sidebar {
-  position: fixed;
-  left: 0;
-  display: block;
-  width: 280px;
-  height: calc(100vh - 80px);
-  background-color: #222222;
-  color: #FFFFFF;
-  overflow-y: auto;
-  transition: transform 0.3s ease;
-  z-index: 99;
-  /* 스크롤바 */
-}
-.sidebar-open .sidebar .inner {
-  padding: 30px 20px;
-}
-.sidebar-open .sidebar .search {
-  margin-bottom: 30px;
-}
-.sidebar-open .sidebar .search form {
-  position: relative;
-}
-.sidebar-open .sidebar .search input {
-  width: 100%;
-  padding: 12px 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-  font-size: 0.875rem;
-  outline: none;
-  transition: background-color 0.3s ease;
-}
-.sidebar-open .sidebar .search input::placeholder {
+.sidebar .search input::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
-.sidebar-open .sidebar .search input:focus {
+.sidebar .search input:focus {
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+.sidebar .gnb li {
+  margin-bottom: 8px;
+}
+.sidebar .gnb li a {
+  position: relative;
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.sidebar .gnb li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+.sidebar .gnb li a:hover::before {
+  left: 100%;
+}
+.sidebar .gnb li a:hover, .sidebar .gnb li a.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(8px);
+}
+
+.sidebar-open .sidebar {
+  top: 60px;
+  left: 0;
+  display: block;
+  /* 스크롤바 */
 }
 .sidebar-open .sidebar .gnb li {
   margin-bottom: 8px;
@@ -288,17 +307,35 @@ body {
 .sidebar-open .sidebar::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-.sidebar-open .content .inner {
-  padding-left: 300px;
+
+/* 오버레이 */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .content {
-  flex: 1;
+  height: calc(100vh + 55px);
   margin-left: 0;
   transition: margin-left 0.3s ease;
 }
 .content .inner {
+  height: 100%;
+  min-height: calc(100vh + 55px);
   padding: 20px;
+  overflow-y: scroll;
 }
 .content .title {
   position: relative;
@@ -323,31 +360,20 @@ body {
 }
 
 /*---------------------------------------------
-	#모바일
+	#mobile-preview
 ---------------------------------------------*/
 .mobile-preview {
   max-width: 375px !important;
-  margin: 150px auto 0;
-  border: 1px solid #707070;
-  border-radius: 20px;
+  margin: 0 auto;
+  box-shadow: 0 0 6px;
   /*---헤더---*/
 }
-.mobile-preview::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: block;
-  width: 100%;
-  height: 20px;
-  border-radius: 20px 20px 0 0;
-  background-color: rgba(0, 0, 0, 0.1411764706);
+.mobile-preview .wrap {
+  padding-top: 52px;
 }
 .mobile-preview .header {
   height: 60px;
   min-height: 60px;
-  border-radius: 20px 20px 0 0;
 }
 
 .sidebar-open .mobile-preview content .inner {
@@ -355,11 +381,12 @@ body {
 }
 
 /*---------------------------------------------
-	#테블릿
+	#tablet-preview
 ---------------------------------------------*/
 .tablet-preview {
   max-width: 768px !important;
   margin: 0 auto;
+  box-shadow: 0 0 6px;
   /*---헤더---*/
   /*---content---*/
 }
@@ -375,11 +402,12 @@ body {
 }
 
 /*---------------------------------------------
-	#테블릿(portrait)
+	#tablet-portrait-preview
 ---------------------------------------------*/
 .tablet-portrait-preview {
   max-width: 600px !important;
   margin: 0 auto;
+  box-shadow: 0 0 6px;
   /*---헤더---*/
   /*---content---*/
 }
@@ -395,7 +423,7 @@ body {
 }
 
 /*---------------------------------------------
-	#desktop
+	#desktop-preview
 ---------------------------------------------*/
 .desktop-preview {
   margin: 0 auto;
@@ -407,6 +435,9 @@ body {
 .desktop-preview .header {
   height: 80px;
   min-height: 80px;
+}
+.desktop-preview .header .logo img {
+  height: 30px;
 }
 
 /*---content---*/

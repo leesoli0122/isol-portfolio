@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../assets/css/common/index.css">
+
+    <!-- lib -->
+    <script type="text/javascript" src="../assets/js/lib/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../assets/js/lib/jquery-ui-1.12.1.js"></script>
+    <script type="text/javascript" src="../assets/js/lib/swiper-bundle.min.js"></script>
+    <!-- ui -->
+    <script type="text/javascript" src="../assets/js/responsive.js"></script>
+    <script type="text/javascript" src="../assets/js/po-common.js"></script>
+
+    <!-- favicon -->
+    <!-- 일반 Favicon 설정 -->
+	<link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <!-- 표준 파비콘 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon/favicon-16x16.png">
+    <!-- 애플 터치 아이콘 (iOS) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png">
+    <!-- 안드로이드 -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/favicon/android-chrome-512x512.png">
+</head>
+<body>
+    <!-- S: skipnavi -->
+    <div id="skipnavi">
+        <script>
+            $(document).ready(function(){
+                $("#skipnavi").load("../include/inc_skipnavi.html");
+            });
+        </script>
+    </div>
+    <!-- E: skipnavi -->
+    <!-- S: 화면 사이즈 선택 -->
+    <div class="preview-controls">
+        <button onclick="setDevice('desktop', this)" class="active">Desktop</button>
+        <button onclick="setDevice('tablet', this)">Tablet</button>
+        <button onclick="setDevice('tablet-portrait', this)">Tablet (Portrait)</button>
+        <button onclick="setDevice('mobile', this)">Mobile</button>
+    </div>
+    <!-- E: 화면 사이즈 선택 -->
+
+    <!-- 메인 컨테이너 -->
+    <div class="main-container desktop-preview" id="mainContainer">
+        <div class="wrap">
+            <!-- S: 헤더 -->
+            <div id="header" class="header">
+                <script>
+                    $(document).ready(function(){
+                        $("#header").load("../include/inc_header.html");
+                    });
+                </script>
+            </div>
+            <!-- E: 헤더 -->
+
+            <!-- S: sidemenu -->
+                <div class="sidebar">
+                    <div class="inner">
+                        <div class="search">
+                            <form method="post" action="#">
+                                <input type="text" name="query" id="query" placeholder="Search">
+                            </form>
+                        </div>
+                        <ul class="gnb">
+                            <li>
+                                <a href="">Introduce</a>
+                            </li>
+                            <li>
+                                <a href="">Guide</a>
+                            </li>
+                            <li>
+                                <a href="">Works</a>
+                            </li>
+                            <li>
+                                <a href="">Contact</a>
+                            </li>
+                            <li>
+                                <a href="">Study</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- E: sidemenu -->
+
+            <!-- 메인 콘텐츠 -->
+            <div id="contentWrap" class="content">
+                <!-- 메인 영역 -->
+                <div class="inner">
+                    <section>
+                        <h2 class="title">Introduce</h2>
+                        <div class="list_wrap">
+                            <div class="tex_wrap">
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+    
+            <!-- 푸터 -->
+            <footer class="footer">
+                <!-- <p>&copy; 2025 포트폴리오. 모든 권리 보유.</p> -->
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
