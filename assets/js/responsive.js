@@ -120,23 +120,37 @@ function togglePreviewControls() {
 
 // 초기화 함수
 function initializeDeviceControl() {
+    console.log('초기화 시작...');
+    console.log('isDesktopDevice():', isDesktopDevice());
+
     showResponsiveInfo();
     togglePreviewControls();
 
     const container = document.getElementById('mainContainer');
-    if (!container) return;
+    console.log('container 찾음:', container);
 
-    if (!isDesktopDevice()) {
-        // 실제 모바일/태블릿 기기에서는 모든 preview 클래스 제거
+    if (!container) {
+        console.error('mainContainer를 찾을 수 없습니다.');
+        return;
+    }
+
+    if (isDesktopDevice()) {
+        // 데스크탑에서는 기본적으로 desktop-preview 클래스 추가
         container.className = 'main-container desktop-preview';
 
         // 데스크탑 버튼을 active 상태로 설정
         const desktopButton = document.querySelector('.preview-controls button[data-device="desktop"]') || document.querySelector('.preview-controls button:last-child');
         if (desktopButton) {
+            // 모든 버튼에서 active 제거
+            document.querySelectorAll('.preview-controls button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // 데스크탑 버튼만 active 추가
             desktopButton.classList.add('active');
         }
         currentDevice = 'desktop';
         console.log('데스크탑 기기 감지 - desktop-preview 클래스 추가됨');
+        console.log('현재 container 클래스:', container.className);
     } else {
         // 실제 모바일/태블릿 기기에서는 모든 preview 클래스 제거
         container.className = 'main-container';
@@ -165,5 +179,16 @@ document.addEventListener('DOMContentLoaded', initializeDeviceControl);
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeDeviceControl);
 } else {
-    initializeDeviceControl();
+    // DOM이 이미 준비되었다면 약간의 지연 후 실행
+    setTimeout(initializeDeviceControl, 10);
 }
+
+// 추가 안전장치: window.onload 이벤트에서도 실행
+window.addEventListener('load', function() {
+    // 이미 초기화되었는지 확인
+    const container = document.getElementById('mainContainer');
+    if (container && isDesktopDevice() && !container.classList.contains('desktop-preview')) {
+        console.log('window.onload에서 재초기화 실행');
+        initializeDeviceControl();
+    }
+});
