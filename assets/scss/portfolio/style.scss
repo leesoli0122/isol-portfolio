@@ -17,13 +17,13 @@
             line-height:1;
             letter-spacing:0;
             &:focus-visible {
-            @include absolute ($position:absolute, $top:0, $left:0);
-            padding:20px 0;
-            background-color:#EAEAEA;
-            border:1px solid $color75;
-            font-weight:$font-w-b;
-            color:$color22;
-            line-height:1;
+                @include absolute ($position:absolute, $top:0, $left:0);
+                padding:20px 0;
+                background-color:#EAEAEA;
+                border:1px solid $color75;
+                font-weight:$font-w-b;
+                color:$color22;
+                line-height:1;
             }
         }
     }
@@ -63,6 +63,7 @@
 
 /*---content---*/
 .introduce_wrap {
+    margin-bottom:60px;
     .tex_wrap {
         display:flex;
         align-items:center;
@@ -84,6 +85,11 @@
         @include wh (200px,200px);
         border-radius:50%;
         background-color:$background02;
+        overflow:hidden;
+        img {
+            @include wh (100%, 100%);
+            object-fit:cover;
+        }
     }
     .profile_tit {
         padding-top:15px;
@@ -93,13 +99,33 @@
         li {
             padding-bottom:10px;
             @include font-body();
+            &:first-child {
+                font-size: $font14;
+                color: $color75;
+                font-weight: $font-w-m;
+            }
             &:last-child {
-                padding-bottom:0;
+                padding-bottom: 0;
+                font-size: $font20;
+                font-weight: $font-w-b;
+                color: $color22;
             }
         }
     }
     .txt_list {
-        padding:0 10px;
+        height:-webkit-fill-available;
+        padding:20px;
+        border-radius:15px;
+        background-color:$background02;
+        box-shadow:1px 1px 3px 0px #9da5b3;
+        li {
+            margin-bottom: 20px;
+            line-height:1.5;
+            font-size:$font15;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 

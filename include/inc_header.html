@@ -1,16 +1,63 @@
 <div class="inner">
+    <div class="hamburger" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <div class="logo">
         <img src="../assets/images/logo.svg" alt="doridori logo">
     </div>
-    <div class="gnb">
-        <div class="menu_btn">메뉴</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Guide</a></li>
-            <li><a href="#works">Works</a></li>
-            <li><a href="#contact">Contact</a></li><!--이메일, 깃허브, 인스타, notion 등 연락 방법-->
-            <li><a href="#study">Study</a></li>
-        </ul>
-        <div class="menu_btn close">닫기</div>
-    </div>
 </div>
+
+<script>
+    function toggleSidebar() {
+        const body = document.body;
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('.sidebar');
+        
+        body.classList.toggle('sidebar-open');
+        hamburger.classList.toggle('active');
+        
+        // 오버레이 클릭 시 사이드바 닫기
+        if (body.classList.contains('sidebar-open')) {
+            const overlay = document.createElement('div');
+            overlay.className = 'sidebar-overlay active';
+            overlay.onclick = closeSidebar;
+            document.body.appendChild(overlay);
+        } else {
+            const overlay = document.querySelector('.sidebar-overlay');
+            if (overlay) {
+                overlay.remove();
+            }
+        }
+    }
+
+    function closeSidebar() {
+        const body = document.body;
+        const hamburger = document.querySelector('.hamburger');
+        const overlay = document.querySelector('.sidebar-ㄴoverlay');
+        
+        body.classList.remove('sidebar-open');
+        hamburger.classList.remove('active');
+        
+        if (overlay) {
+            overlay.remove();
+        }
+    }
+
+    // 이벤트 리스너 추가
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', toggleSidebar);
+        }
+        
+        // ESC 키로 사이드바 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.body.classList.contains('sidebar-open')) {
+                closeSidebar();
+            }
+        });
+    });
+</script>
+

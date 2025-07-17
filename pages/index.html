@@ -55,22 +55,38 @@
                     $(document).ready(function(){
                         $("#header").load("../include/inc_header.html");
                     });
-                    // 이벤트 위임 사용 - 동적으로 추가된 요소에도 작동
-                    $(document).on('click', '.menu_btn', function () {
-                        const $gnb = $('.gnb');
-                        const isOpen = $gnb.hasClass('on');
-
-                        if (isOpen) {
-                            $gnb.removeClass('on');
-                            $('.menu_btn:not(.close)').attr('title', '메뉴 닫힘');
-                        } else {
-                            $gnb.addClass('on');
-                            $('.menu_btn:not(.close)').attr('title', '메뉴 열림');
-                        }
-                    });
                 </script>
             </div>
             <!-- E: 헤더 -->
+
+            <!-- S: sidemenu -->
+                <div class="sidebar">
+                    <div class="inner">
+                        <div class="search">
+                            <form method="post" action="#">
+                                <input type="text" name="query" id="query" placeholder="Search">
+                            </form>
+                        </div>
+                        <ul class="gnb">
+                            <li>
+                                <a href="">Introduce</a>
+                            </li>
+                            <li>
+                                <a href="">Guide</a>
+                            </li>
+                            <li>
+                                <a href="">Works</a>
+                            </li>
+                            <li>
+                                <a href="">Contact</a>
+                            </li>
+                            <li>
+                                <a href="">Study</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- E: sidemenu -->
 
             <!-- 메인 콘텐츠 -->
             <div id="contentWrap" class="content">
