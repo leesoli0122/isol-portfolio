@@ -62,7 +62,7 @@ function createOverlay() {
     overlay.style.width = '100%';
     overlay.style.height = '100%';
     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    overlay.style.zIndex = '999';
+    overlay.style.zIndex = '98';
     overlay.style.pointerEvents = 'auto';
     
     // 상대적 위치 설정이 필요한 경우

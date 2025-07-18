@@ -230,6 +230,21 @@ body {
             }
         }
     }
+    .desktop-preview {
+        .sidebar {
+            top:132px;
+        }
+        .content {
+            .inner {
+                padding-left:300px;
+            }
+        }
+    }
+    .tablet-preview {
+        .sidebar {
+            top:64px;
+        }
+    }
 }
 /* 오버레이 */
 .sidebar-overlay {
@@ -266,9 +281,6 @@ body {
         color:$color22;
         @include font-title;
     }
-    .tex_wrap {
-        padding-top:40px;
-    }
 }
 
 /*---------------------------------------------
@@ -299,13 +311,10 @@ body {
 .tablet-preview {
     max-width: 768px !important;
     box-shadow:0 0 6px;
-    /*---헤더---*/
     .header {
         height:70px;
         min-height:80px;
     }
-
-    /*---content---*/
     .content {
         .inner {
             padding-top:70px;
@@ -319,13 +328,10 @@ body {
 .tablet-portrait-preview {
     max-width: 600px !important;
     box-shadow:0 0 6px;
-    /*---헤더---*/
     .header {
         height:64px;
         min-height:64px;
     }
-
-    /*---content---*/
     .content {
         .inner {
             padding-top:80px;
@@ -333,31 +339,12 @@ body {
     }
 }
 @media (min-width: 768px) {
-    .tablet-preview {
+    .main-container {
         box-shadow:0 0 6px;
-        /*---헤더---*/
-        .header {
-            height:70px;
-            min-height:80px;
-        }
-    
-        /*---content---*/
-        .content {
-            .inner {
-                padding-top:70px;
-            }
-        }
-    }
-
-    .tablet-portrait-preview {
-        box-shadow:0 0 6px;
-        /*---헤더---*/
         .header {
             height:64px;
             min-height:64px;
         }
-    
-        /*---content---*/
         .content {
             .inner {
                 padding-top:80px;
@@ -370,7 +357,6 @@ body {
 	#desktop-preview
 ---------------------------------------------*/
 .desktop-preview {
-    /*---헤더---*/
     .header {
         height:80px;
         min-height:80px;
@@ -380,14 +366,6 @@ body {
             }
         }
     }
-    .sidebar-open {
-        .content {
-            .inner {
-                padding-left:300px;
-            }
-        }
-    }
-    /*---content---*/
     .content {
         .inner {
             padding-top:80px;
@@ -395,8 +373,17 @@ body {
     }
 }
 @media (min-width: 1025px) {
-    .desktop-preview {
-        /*---헤더---*/
+    .sidebar-open {
+        .sidebar {
+            top:132px;
+        }
+        .content {
+            .inner {
+                padding-left:300px;
+            }
+        }
+    }
+    .main-container {
         .header {
             height:80px;
             min-height:80px;
@@ -406,14 +393,6 @@ body {
                 }
             }
         }
-        .sidebar-open {
-            .content {
-                .inner {
-                    padding-left:300px;
-                }
-            }
-        }
-        /*---content---*/
         .content {
             .inner {
                 padding-top:80px;

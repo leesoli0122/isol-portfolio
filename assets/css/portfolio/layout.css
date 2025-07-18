@@ -307,6 +307,15 @@ body {
 .sidebar-open .sidebar::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
+.sidebar-open .desktop-preview .sidebar {
+  top: 132px;
+}
+.sidebar-open .desktop-preview .content .inner {
+  padding-left: 300px;
+}
+.sidebar-open .tablet-preview .sidebar {
+  top: 64px;
+}
 
 /* 오버레이 */
 .sidebar-overlay {
@@ -355,9 +364,6 @@ body {
     font-size: 2rem;
   }
 }
-.content .tex_wrap {
-  padding-top: 40px;
-}
 
 /*---------------------------------------------
 	#mobile-preview
@@ -382,8 +388,6 @@ body {
 .tablet-preview {
   max-width: 768px !important;
   box-shadow: 0 0 6px;
-  /*---헤더---*/
-  /*---content---*/
 }
 .tablet-preview .header {
   height: 70px;
@@ -399,8 +403,6 @@ body {
 .tablet-portrait-preview {
   max-width: 600px !important;
   box-shadow: 0 0 6px;
-  /*---헤더---*/
-  /*---content---*/
 }
 .tablet-portrait-preview .header {
   height: 64px;
@@ -411,38 +413,20 @@ body {
 }
 
 @media (min-width: 768px) {
-  .tablet-preview {
+  .main-container {
     box-shadow: 0 0 6px;
-    /*---헤더---*/
-    /*---content---*/
   }
-  .tablet-preview .header {
-    height: 70px;
-    min-height: 80px;
-  }
-  .tablet-preview .content .inner {
-    padding-top: 70px;
-  }
-  .tablet-portrait-preview {
-    box-shadow: 0 0 6px;
-    /*---헤더---*/
-    /*---content---*/
-  }
-  .tablet-portrait-preview .header {
+  .main-container .header {
     height: 64px;
     min-height: 64px;
   }
-  .tablet-portrait-preview .content .inner {
+  .main-container .content .inner {
     padding-top: 80px;
   }
 }
 /*---------------------------------------------
 	#desktop-preview
 ---------------------------------------------*/
-.desktop-preview {
-  /*---헤더---*/
-  /*---content---*/
-}
 .desktop-preview .header {
   height: 80px;
   min-height: 80px;
@@ -450,29 +434,25 @@ body {
 .desktop-preview .header .logo img {
   height: 30px;
 }
-.desktop-preview .sidebar-open .content .inner {
-  padding-left: 300px;
-}
 .desktop-preview .content .inner {
   padding-top: 80px;
 }
 
 @media (min-width: 1025px) {
-  .desktop-preview {
-    /*---헤더---*/
-    /*---content---*/
+  .sidebar-open .sidebar {
+    top: 132px;
   }
-  .desktop-preview .header {
+  .sidebar-open .content .inner {
+    padding-left: 300px;
+  }
+  .main-container .header {
     height: 80px;
     min-height: 80px;
   }
-  .desktop-preview .header .logo img {
+  .main-container .header .logo img {
     height: 30px;
   }
-  .desktop-preview .sidebar-open .content .inner {
-    padding-left: 300px;
-  }
-  .desktop-preview .content .inner {
+  .main-container .content .inner {
     padding-top: 80px;
   }
 }

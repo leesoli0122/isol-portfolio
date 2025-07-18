@@ -2,6 +2,7 @@
 
 @import url("../portfolio/layout.css");
 @import url("../portfolio/style.css");
+@import url("../portfolio/guide.css");
 
 /* 공통 */
 @import url("../common/reset.css");
